@@ -1,6 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
 import PlayStation from "@/assets/images/Navigation/Playstation.svg";
-import Setting from "@/assets/images/Navigation/Setting.svg";
+import SetImoge from "@/assets/images/Navigation/Setting.svg";
+import Setting from "@/components/Setting/Setting";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -34,17 +36,24 @@ export const HomeBtn = styled.div`
 export const SettingBtn = styled.div`
   width: 30px;
   height: 30px;
-  background: url(${Setting});
+  background: url(${SetImoge});
   background-repeat: no-repeat;
 `;
 
 export default function Navigation() {
+  const [isShow, setIsShow] = useState(false);
+
+  const handleSetting = () => {
+    setIsShow(true);
+  };
+
   return (
     <Wrapper>
       <NavigationBar>
         <HomeBtn />
-        <SettingBtn />
+        <SettingBtn onClick={handleSetting} />
       </NavigationBar>
+      {isShow ? <Setting setIsShow={setIsShow} /> : <></>}
     </Wrapper>
   );
 }

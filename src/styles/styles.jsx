@@ -64,7 +64,6 @@ export const ContentForBox = styled.div`
   max-width: 50%;
   max-height: 20%;
   background-color: #f9faff;
-  z-index: 100;
 `;
 
 export const ContentFor = styled.div`
