@@ -22,7 +22,7 @@ export const NavigationBar = styled.div`
   align-items: center;
   width: 85%;
   height: 45px;
-  max-width: 390px;
+  max-width: 320px;
   margin-top: 10px;
 `;
 
