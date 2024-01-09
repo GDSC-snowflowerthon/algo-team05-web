@@ -22,3 +22,61 @@ export const Wrapper = styled.div`
 `;
 
 /* other pages... */
+
+export const ButtonStyle = styled.button`
+  margin-top: ${(props) => props.top || "0"};
+  width: 50%;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f9faff;
+  border-radius: 15px;
+  background-color: #8ed0f4;
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+`;
+
+/* ClickContent 페이지 */
+export const Title = styled.div`
+  margin-top: 95px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #333d42;
+`;
+
+export const ContentBox = styled.div`
+  margin-top: ${(props) => props.top || "0"};
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #333d42;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ContentForBox = styled.div`
+  position: absolute;
+  top: -10px;
+  max-width: 50%;
+  max-height: 20%;
+  background-color: #f9faff;
+  z-index: 100;
+`;
+
+export const ContentFor = styled.div`
+  color: #333d42;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 3px 10px 3px 10px;
+`;
+
+export const Content = styled.div`
+  padding: 25px;
+  color: #333d42;
+  font-size: 15px;
+  font-weight: 400;
+`;
