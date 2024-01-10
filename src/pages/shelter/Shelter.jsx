@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Wrapper,
   Title,
@@ -17,6 +18,10 @@ import ShelterTag from "@/components/shelter/ShelterTag";
 import DetailTag from "@/components/shelter/DetailTag";
 
 export default function Shelter() {
+  const location = useLocation();
+  const data = location.state || null;
+  console.log(data); // 지역을 받아옵니다.
+
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
 

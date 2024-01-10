@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Wrapper, Title, IntroText, ButtonStyle } from "@/styles/styles";
 import styled from "styled-components";
 import B_Map from "@/assets/images/map/beforemap.svg";
@@ -14,12 +15,16 @@ export const BeforeMap = styled.div`
 `;
 
 export default function SelectMap() {
+  const navigate = useNavigate();
+
   const [area, setArea] = useState(null);
 
   console.log("선택한 지역은 : ", area);
 
   // 데이터 전송 함수
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    navigate(`/shelter-list`, { state: area });
+  };
 
   // 자식 컴포넌트 Map으로 함수를 전달하여 자식 컴포넌트의 값을 부모 컴포넌트로 가져온다.
   return (
