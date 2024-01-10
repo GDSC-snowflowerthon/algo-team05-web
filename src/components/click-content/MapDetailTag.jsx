@@ -77,6 +77,10 @@ export const MoreLearn = styled.div`
 `;
 
 export default function MapDetailTag() {
+  const onMoreInfoClick = () => {
+    window.open(`https://map.kakao.com/link/search/제주시 명월성로 5`);
+  };
+
   return (
     <>
       <Map />
@@ -90,7 +94,7 @@ export default function MapDetailTag() {
           <Call />
           <Content>010-0000-0000</Content>
         </FlexRow>
-        <MoreLearn>더 알아보기</MoreLearn>
+        <MoreLearn onClick={onMoreInfoClick}>더 알아보기</MoreLearn>
       </TagBox>
     </>
   );
