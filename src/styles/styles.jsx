@@ -30,16 +30,26 @@ export const ButtonStyle = styled.button`
   text-align: center;
   font-size: 18px;
   font-weight: 700;
-  color: #f9faff;
+  color: ${(props) => props.color || "#f9faff"};
   border-radius: 15px;
-  background-color: #8ed0f4;
+  background-color: ${(props) => props.bg || "#8ed0f4"};
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  z-index: 100;
 `;
+
+// 활성화 아닌 경우
+/*
+  color: rgba(141, 166, 187, 0.3);
+  background: #e7edf2;
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+*/
 
 /* ClickContent 페이지 */
 export const Title = styled.div`
-  margin-top: 95px;
+  margin-top: ${(props) => props.top || "95px"};
   font-size: 25px;
   font-weight: 700;
   color: #333d42;
@@ -64,7 +74,6 @@ export const ContentForBox = styled.div`
   max-width: 50%;
   max-height: 20%;
   background-color: #f9faff;
-  z-index: 100;
 `;
 
 export const ContentFor = styled.div`
@@ -76,6 +85,15 @@ export const ContentFor = styled.div`
 
 export const Content = styled.div`
   padding: 25px;
+  color: #333d42;
+  font-size: 15px;
+  font-weight: 400;
+`;
+
+/* Map 페이지 */
+
+export const IntroText = styled.div`
+  margin-top: 30px;
   color: #333d42;
   font-size: 15px;
   font-weight: 400;

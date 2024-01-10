@@ -1,17 +1,19 @@
+import { useState } from "react";
 import styled from "styled-components";
 import PlayStation from "@/assets/images/Navigation/Playstation.svg";
-import Setting from "@/assets/images/Navigation/Setting.svg";
+import SetImoge from "@/assets/images/Navigation/Setting.svg";
+import Setting from "@/components/Setting/Setting";
 
 export const Wrapper = styled.div`
   position: fixed;
   margin: 0 auto;
   width: 100%;
-  height: 100%;
-  min-height: 99vh;
+  height: 10%;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 100;
+  z-index: 120;
 `;
 
 export const NavigationBar = styled.div`
@@ -20,7 +22,7 @@ export const NavigationBar = styled.div`
   align-items: center;
   width: 85%;
   height: 45px;
-  max-width: 390px;
+  max-width: 320px;
   margin-top: 10px;
 `;
 
@@ -34,17 +36,24 @@ export const HomeBtn = styled.div`
 export const SettingBtn = styled.div`
   width: 30px;
   height: 30px;
-  background: url(${Setting});
+  background: url(${SetImoge});
   background-repeat: no-repeat;
 `;
 
 export default function Navigation() {
+  const [isShow, setIsShow] = useState(false);
+
+  const handleSetting = () => {
+    setIsShow(true);
+  };
+
   return (
     <Wrapper>
       <NavigationBar>
         <HomeBtn />
-        <SettingBtn />
+        <SettingBtn onClick={handleSetting} />
       </NavigationBar>
+      {isShow ? <Setting setIsShow={setIsShow} /> : <></>}
     </Wrapper>
   );
 }
