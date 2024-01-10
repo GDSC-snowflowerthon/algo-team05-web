@@ -218,3 +218,82 @@ export const DetailTagBox = styled.div`
   margin-top: -230px;
   z-index: 100;
 `;
+
+
+/* 첫 화면 Start 스타일*/
+export const SettingsButton = styled.button`
+    position: absolute;
+    background: none;
+    border: none;
+    outline: none;
+    img {
+        width: 30px;
+    }
+    display: flex;
+    margin: 10px;
+`;
+
+export const Main = styled.div`
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #333d42;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s;
+
+  &.fade-in {
+    opacity: 1;
+`;
+export const Main_2 = styled.div`
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 350;
+  color: #333d42;
+  text-align: center;
+  
+  opacity: 0;
+  transition: opacity 1s;
+
+  &.fade-in {
+    opacity: 1;
+  }
+`;
+export const Main_3 = styled.div`
+  margin-top: 15px;
+  margin-bottom: 50px;
+  font-size: 15px;
+  font-weight: 350;
+  color: #333d42;
+  text-align: center;
+  
+  opacity: 0;
+  transition: opacity 1s;
+
+  &.fade-in {
+    opacity: 1;
+  }
+`;
+export const StartButtonStyle = styled.button`
+  margin-top: 20px;
+  width: 50%;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color : #8ed0f4;
+  background-color: #8ed0f4;
+  box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
+    -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+`;
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
