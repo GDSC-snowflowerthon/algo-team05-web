@@ -11,8 +11,9 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1000;
+  max-width: 390px;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 `;
 
 export const SettingBox = styled.div`
@@ -25,6 +26,7 @@ export const SettingBox = styled.div`
   border-radius: 20px;
   border: 1px solid #2f88a4;
   background: #f9faff;
+  z-index: 500;
 `;
 
 export const ContentBox = styled.div`
