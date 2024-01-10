@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import LocationImoge from "@/assets/images/shelter/location.svg";
 import CallImoge from "@/assets/images/shelter/call.svg";

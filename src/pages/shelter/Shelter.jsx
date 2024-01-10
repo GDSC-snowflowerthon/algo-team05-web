@@ -19,8 +19,8 @@ import DetailTag from "@/components/shelter/DetailTag";
 
 export default function Shelter() {
   const location = useLocation();
-  const data = location.state || null;
-  console.log(data); // 지역을 받아옵니다.
+  const [data, setData] = useState(location.state || null);
+  // console.log(data); // 지역을 받아옵니다.
 
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -30,7 +30,9 @@ export default function Shelter() {
     setText(event.target.value);
   };
 
-  const handleSearch = (keyword) => {};
+  const handleSearch = (keyword) => {
+    console.log("클릭");
+  };
 
   return (
     <Wrapper>
@@ -41,10 +43,10 @@ export default function Shelter() {
       <SearchBox>
         <SearchInput type="text" value={text} onChange={handleChange} />
         <SearchIconBox>
-          <SearchIcon onClick={handleSearch(text)} />
+          <SearchIcon onClick={() => handleSearch(text)} />
         </SearchIconBox>
       </SearchBox>
-      <ShelterContent>서울 전체</ShelterContent>
+      <ShelterContent>{data}</ShelterContent>
       <ListBox>
         <ShelterTag setOpen={setOpen} />
         <ShelterTag setOpen={setOpen} />
