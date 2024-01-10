@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PlayStation from "@/assets/images/Navigation/Playstation.svg";
 import SetImoge from "@/assets/images/Navigation/Setting.svg";
 import Setting from "@/components/Setting/Setting";
+import { useNavigate } from "react-router-dom";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -31,6 +32,7 @@ export const HomeBtn = styled.div`
   height: 30px;
   background: url(${PlayStation});
   background-repeat: no-repeat;
+  cursor: pointer;
 `;
 
 export const SettingBtn = styled.div`
@@ -38,19 +40,25 @@ export const SettingBtn = styled.div`
   height: 30px;
   background: url(${SetImoge});
   background-repeat: no-repeat;
+  cursor: pointer;
 `;
 
 export default function Navigation() {
   const [isShow, setIsShow] = useState(false);
+  const navigate = useNavigate();
 
   const handleSetting = () => {
     setIsShow(true);
   };
 
+  const handleNavigate = () => {
+    navigate("/");
+  };
+
   return (
     <Wrapper>
       <NavigationBar>
-        <HomeBtn />
+        <HomeBtn onClick={handleNavigate} />
         <SettingBtn onClick={handleSetting} />
       </NavigationBar>
       {isShow ? <Setting setIsShow={setIsShow} /> : <></>}
