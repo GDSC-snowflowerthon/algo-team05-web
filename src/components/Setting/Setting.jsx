@@ -81,6 +81,7 @@ export const OnBtn = styled.div`
   font-size: 12px;
   font-weight: 400;
   padding: 3px 9px 3px 9px;
+  cursor: pointer;
 `;
 
 export const OffBtn = styled.div`
@@ -93,6 +94,7 @@ export const OffBtn = styled.div`
   background: ${(props) => props.bg || "0"};
   box-shadow: ${(props) => props.shadow || "none"};
   border-radius: 30px;
+  cursor: pointer;
 `;
 
 export const ButtonStyle = styled.button`
