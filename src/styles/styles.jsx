@@ -30,30 +30,22 @@ export const ButtonStyle = styled.button`
   text-align: center;
   font-size: 18px;
   font-weight: 700;
-  color: #f9faff;
+  color: ${(props) => props.color || "#f9faff"};
   border-radius: 15px;
-  background-color: #8ed0f4;
+  background-color: ${(props) => props.bg || "#8ed0f4"};
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  z-index: 500;
+  z-index: 100;
 `;
 
-export const ButtonStyleNon = styled.button`
-  margin-top: ${(props) => props.top || "0"};
-  width: 50%;
-  padding: 14px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 700;
+// 활성화 아닌 경우
+/*
   color: rgba(141, 166, 187, 0.3);
-  border-radius: 15px;
   background: #e7edf2;
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  z-index: 500;
-`;
+*/
 
 /* ClickContent 페이지 */
 export const Title = styled.div`
