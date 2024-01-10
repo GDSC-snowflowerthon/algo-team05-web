@@ -11,12 +11,14 @@ export const ShelterBox = styled.div`
   background: #fff;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
   padding: 15px 20px 15px 20px;
+  cursor: pointer;
 `;
 
 export const ShelterTitle = styled.div`
   color: #3e4958;
   font-size: 18px;
   font-weight: 700;
+  pointer-events: none;
 `;
 
 export const FlexRow = styled.div`
@@ -34,6 +36,7 @@ export const ShelterContent = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  pointer-events: none;
 `;
 
 export const ShelterIcon = styled.div`

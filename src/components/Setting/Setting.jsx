@@ -41,6 +41,7 @@ export const Title = styled.div`
   color: #333d42;
   font-size: 15px;
   font-weight: 400;
+  pointer-events: none;
 `;
 
 export const Content = styled.div`
@@ -49,6 +50,7 @@ export const Content = styled.div`
   font-weight: 400;
   text-align: left;
   margin-top: ${(props) => props.top || "0"};
+  pointer-events: none;
 `;
 
 export const OnOffBox = styled.div`
@@ -105,6 +107,7 @@ export const ButtonStyle = styled.button`
   background-color: #8ed0f4;
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 `;
 
 export default function Setting({ setIsShow }) {

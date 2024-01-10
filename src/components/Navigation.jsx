@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
   position: fixed;
   margin: 0 auto;
   width: 100%;
-  height: 10%;
-  min-height: 10vh;
+  max-height: 10px;
+  min-height: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@ export const NavigationBar = styled.div`
   width: 85%;
   height: 45px;
   max-width: 320px;
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 export const HomeBtn = styled.div`

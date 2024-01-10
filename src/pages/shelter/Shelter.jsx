@@ -10,8 +10,10 @@ import {
   ShelterContent,
   ListBox,
   ScrollIcon,
+  DetailTagBox,
 } from "@/styles/styles";
 import ShelterTag from "@/components/shelter/ShelterTag";
+import DetailTag from "@/components/shelter/DetailTag";
 
 export default function Shelter() {
   return (
@@ -37,6 +39,9 @@ export default function Shelter() {
         <ShelterTag />
       </ListBox>
       <ScrollIcon />
+      <DetailTagBox>
+        <DetailTag />
+      </DetailTagBox>
     </Wrapper>
   );
 }

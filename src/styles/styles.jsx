@@ -56,6 +56,7 @@ export const Title = styled.div`
   font-size: 25px;
   font-weight: 700;
   color: #333d42;
+  pointer-events: none;
 `;
 
 export const ContentBox = styled.div`
@@ -84,6 +85,7 @@ export const ContentFor = styled.div`
   font-size: 15px;
   font-weight: 400;
   padding: 3px 10px 3px 10px;
+  pointer-events: none;
 `;
 
 export const Content = styled.div`
@@ -91,6 +93,7 @@ export const Content = styled.div`
   color: #333d42;
   font-size: 15px;
   font-weight: 400;
+  pointer-events: none;
 `;
 
 /* Map 페이지 */
@@ -100,6 +103,7 @@ export const IntroText = styled.div`
   color: #333d42;
   font-size: 15px;
   font-weight: 400;
+  pointer-events: none;
 `;
 
 /* shelter 페이지 */
@@ -110,6 +114,7 @@ export const Information = styled.div`
   height: 20px;
   background: url(${InfoImoge});
   background-repeat: no-repeat;
+  cursor: pointer;
 `;
 
 export const FlexRow = styled.div`
@@ -157,6 +162,7 @@ export const ShelterContent = styled.div`
   color: #333d42;
   font-size: 15px;
   font-weight: 400;
+  pointer-events: none;
 `;
 
 export const ListBox = styled.div`
@@ -196,5 +202,10 @@ export const ScrollIcon = styled.div`
   height: 30px;
   background: url(${ScrollArrow});
   background-repeat: no-repeat;
+  z-index: 100;
+`;
+
+export const DetailTagBox = styled.div`
+  margin-top: -230px;
   z-index: 100;
 `;
