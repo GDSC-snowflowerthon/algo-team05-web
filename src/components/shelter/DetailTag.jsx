@@ -2,6 +2,7 @@ import styled from "styled-components";
 import LocationImoge from "@/assets/images/shelter/location.svg";
 import CallImoge from "@/assets/images/shelter/call.svg";
 import CancelImoge from "@/assets/images/shelter/cancel.svg";
+import PropTypes from "prop-types";
 
 export const TagBox = styled.div`
   position: relative;
@@ -91,13 +92,17 @@ export const Cancel = styled.div`
   cursor: pointer;
 `;
 
-export default function DetailTag() {
+export default function DetailTag({ setOpen }) {
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
   return (
     <TagBox>
       <FlexRow>
         <Map></Map>
         <TitleBox>
-          <Cancel />
+          <Cancel onClick={handleCancel} />
           <Title>노을 공원</Title>
           <MoreLearn>더 알아보기</MoreLearn>
         </TitleBox>
@@ -113,3 +118,7 @@ export default function DetailTag() {
     </TagBox>
   );
 }
+
+DetailTag.propTypes = {
+  setOpen: PropTypes.func.isRequired,
+};

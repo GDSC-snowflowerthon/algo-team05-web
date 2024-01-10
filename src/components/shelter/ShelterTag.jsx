@@ -46,9 +46,13 @@ export const ShelterIcon = styled.div`
   background-repeat: no-repeat;
 `;
 
-export default function ShelterTag() {
+export default function ShelterTag({ setOpen }) {
+  const handleSelect = () => {
+    setOpen(true);
+  };
+
   return (
-    <ShelterBox>
+    <ShelterBox onClick={handleSelect}>
       <ShelterTitle>노을 공원</ShelterTitle>
       <FlexRow>
         <ShelterIcon />
@@ -57,3 +61,7 @@ export default function ShelterTag() {
     </ShelterBox>
   );
 }
+
+ShelterTag.propTypes = {
+  setOpen: PropTypes.func.isRequired,
+};

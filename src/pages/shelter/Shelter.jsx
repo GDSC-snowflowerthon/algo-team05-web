@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Wrapper,
   Title,
@@ -16,6 +17,16 @@ import ShelterTag from "@/components/shelter/ShelterTag";
 import DetailTag from "@/components/shelter/DetailTag";
 
 export default function Shelter() {
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState("");
+
+  // input 입력 값 변환 함수
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
+  const handleSearch = (keyword) => {};
+
   return (
     <Wrapper>
       <FlexRow>
@@ -23,24 +34,24 @@ export default function Shelter() {
         <Information />
       </FlexRow>
       <SearchBox>
-        <SearchInput type="text" />
+        <SearchInput type="text" value={text} onChange={handleChange} />
         <SearchIconBox>
-          <SearchIcon />
+          <SearchIcon onClick={handleSearch(text)} />
         </SearchIconBox>
       </SearchBox>
-      <ShelterContent>강서구 대피소</ShelterContent>
+      <ShelterContent>서울 전체</ShelterContent>
       <ListBox>
-        <ShelterTag />
-        <ShelterTag />
-        <ShelterTag />
-        <ShelterTag />
-        <ShelterTag />
-        <ShelterTag />
-        <ShelterTag />
+        <ShelterTag setOpen={setOpen} />
+        <ShelterTag setOpen={setOpen} />
+        <ShelterTag setOpen={setOpen} />
+        <ShelterTag setOpen={setOpen} />
+        <ShelterTag setOpen={setOpen} />
+        <ShelterTag setOpen={setOpen} />
+        <ShelterTag setOpen={setOpen} />
       </ListBox>
       <ScrollIcon />
       <DetailTagBox>
-        <DetailTag />
+        {open ? <DetailTag setOpen={setOpen} /> : <></>}
       </DetailTagBox>
     </Wrapper>
   );
