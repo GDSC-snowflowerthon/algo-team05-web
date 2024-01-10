@@ -3,13 +3,14 @@ import styled from "styled-components";
 import PlayStation from "@/assets/images/Navigation/Playstation.svg";
 import SetImoge from "@/assets/images/Navigation/Setting.svg";
 import Setting from "@/components/Setting/Setting";
+import { useNavigate } from "react-router-dom";
 
 export const Wrapper = styled.div`
   position: fixed;
   margin: 0 auto;
   width: 100%;
-  height: 10%;
-  min-height: 10vh;
+  max-height: 10px;
+  min-height: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +24,7 @@ export const NavigationBar = styled.div`
   width: 85%;
   height: 45px;
   max-width: 320px;
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 export const HomeBtn = styled.div`
@@ -31,6 +32,7 @@ export const HomeBtn = styled.div`
   height: 30px;
   background: url(${PlayStation});
   background-repeat: no-repeat;
+  cursor: pointer;
 `;
 
 export const SettingBtn = styled.div`
@@ -38,19 +40,25 @@ export const SettingBtn = styled.div`
   height: 30px;
   background: url(${SetImoge});
   background-repeat: no-repeat;
+  cursor: pointer;
 `;
 
 export default function Navigation() {
   const [isShow, setIsShow] = useState(false);
+  const navigate = useNavigate();
 
   const handleSetting = () => {
     setIsShow(true);
   };
 
+  const handleNavigate = () => {
+    navigate("/");
+  };
+
   return (
     <Wrapper>
       <NavigationBar>
-        <HomeBtn />
+        <HomeBtn onClick={handleNavigate} />
         <SettingBtn onClick={handleSetting} />
       </NavigationBar>
       {isShow ? <Setting setIsShow={setIsShow} /> : <></>}
