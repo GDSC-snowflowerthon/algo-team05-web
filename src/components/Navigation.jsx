@@ -8,12 +8,12 @@ export const Wrapper = styled.div`
   position: fixed;
   margin: 0 auto;
   width: 100%;
-  height: 100%;
-  min-height: 99vh;
+  height: 10%;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 100;
+  z-index: 120;
 `;
 
 export const NavigationBar = styled.div`
