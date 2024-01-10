@@ -28,6 +28,7 @@ export const Wrapper = styled.div`
 
 export const ButtonStyle = styled.button`
   margin-top: ${(props) => props.top || "0"};
+  margin-bottom: ${(props) => props.bottom || "0"};
   width: 50%;
   padding: 14px;
   text-align: center;
@@ -90,6 +91,14 @@ export const ContentFor = styled.div`
 
 export const Content = styled.div`
   padding: 25px;
+  color: #333d42;
+  font-size: 15px;
+  font-weight: 400;
+  pointer-events: none;
+`;
+
+export const SlideContent = styled.div`
+  margin-top: 40px;
   color: #333d42;
   font-size: 15px;
   font-weight: 400;
@@ -197,7 +206,7 @@ export const ListShadow = styled.div`
 */
 
 export const ScrollIcon = styled.div`
-  margin-top: 10px;
+  margin-top: ${(props) => props.top || "10px"};
   width: 40px;
   height: 30px;
   background: url(${ScrollArrow});
