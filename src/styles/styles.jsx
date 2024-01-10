@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { theme } from "@/styles/theme";
+import InfoImoge from "@/assets/images/shelter/information.svg";
+import SearchImoge from "@/assets/images/shelter/search.svg";
+import ScrollArrow from "@/assets/images/shelter/scrollarrow.svg";
 
 // 페이지별로 용도 나눠주세요
 /**  샘플 페이지 스타일 **/
@@ -97,4 +100,101 @@ export const IntroText = styled.div`
   color: #333d42;
   font-size: 15px;
   font-weight: 400;
+`;
+
+/* shelter 페이지 */
+export const Information = styled.div`
+  margin-top: 68px;
+  margin-left: 7px;
+  width: 20px;
+  height: 20px;
+  background: url(${InfoImoge});
+  background-repeat: no-repeat;
+`;
+
+export const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const SearchBox = styled.div`
+  position: relative;
+  margin-top: 27px;
+  width: 85%;
+  border-radius: 8px;
+  border: 1px solid rgba(47, 136, 164, 0.3);
+  background: #fff;
+  overflow: hidden;
+`;
+
+export const SearchInput = styled.input`
+  width: 100%;
+  padding: 15px;
+`;
+
+export const SearchIconBox = styled.button`
+  top: 0;
+  right: 0;
+  position: absolute;
+  display: flex;
+  background: #2f88a4;
+  width: 15%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+
+export const SearchIcon = styled.div`
+  width: 26px;
+  height: 26px;
+  background: url(${SearchImoge});
+  background-repeat: no-repeat;
+`;
+
+export const ShelterContent = styled.div`
+  margin-top: 16px;
+  color: #333d42;
+  font-size: 15px;
+  font-weight: 400;
+`;
+
+export const ListBox = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  margin-top: 28px;
+  width: 100%;
+  max-height: 450px;
+  background-color: translate;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0; /* 숨김 */
+  }
+  /* Firefox */
+  scrollbar-width: none; /* Firefox 64+ */
+  -ms-overflow-style: none;
+`;
+
+/*
+export const ListShadow = styled.div`
+  position: absolute;
+  top: 150px;
+  display: flex;
+  background: linear-gradient(-180deg, #fff 0%, rgba(255, 255, 255, 0) 64.5%);
+  width: 80%;
+  height: 100%;
+  z-index: 100;
+`;
+*/
+
+export const ScrollIcon = styled.div`
+  margin-top: 10px;
+  width: 40px;
+  height: 30px;
+  background: url(${ScrollArrow});
+  background-repeat: no-repeat;
+  z-index: 100;
 `;

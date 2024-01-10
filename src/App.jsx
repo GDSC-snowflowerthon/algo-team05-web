@@ -3,6 +3,7 @@ import TestPage from "@/pages/test/TestPage";
 import ClickContent from "@/pages/click-content/ClickContent";
 import Navigation from "@/components/Navigation";
 import SelectMap from "@/pages/map/SelectMap";
+import Shelter from "@/pages/shelter/Shelter";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/test" element={<TestPage />} />
         <Route path="/message-content" element={<ClickContent />} />
         <Route path="/map" element={<SelectMap />} />
+        <Route path="/shelter-list" element={<Shelter />} />
       </Routes>
     </>
   );
