@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Wrapper,
   Title,
@@ -16,6 +16,29 @@ import ActionDetailTag from "@/components/click-content/ActionDetailTag";
 export default function ClickContent() {
   const [openLocate, setOpenLocate] = useState(false);
   const [openAction, setOpenAction] = useState(false);
+  const [data, setData] = useState();
+
+  const getMessageData = async () => {
+    try {
+      let response = await fetch(`http://3.39.62.158:8080/disaster/message`, {
+        headers: {
+          "X-ACCESS-TOKEN":
+            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXRAbmF2ZXIuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTcwNDkxMjM1MywiZXhwIjoxNzA0OTQ4MzUzfQ.t18T0b-BVDa372kHrGdRgT5WV_3DYist1CLzgqmPjltMn7PIoRSvuILjwkektEOfoAbiwTPdb6LrD7Z1Pt1ssQ",
+        },
+      });
+
+      if (response.ok) {
+        // 여기에서 response.json() 또는 response.text()를 사용하여 데이터를 처리
+        const data = await response.json();
+        setData(data);
+      } else {
+        // 오류 응답 처리
+        console.error(`Error: ${response.status} ${response.statusText}`);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const handleLocation = () => {
     setOpenAction(false);
@@ -26,6 +49,10 @@ export default function ClickContent() {
     setOpenLocate(false);
     setOpenAction(true);
   };
+
+  useEffect(() => {
+    getMessageData();
+  }, []);
 
   return (
     <Wrapper>
@@ -46,9 +73,7 @@ export default function ClickContent() {
         <ContentForBox>
           <ContentFor>번역된 내용</ContentFor>
         </ContentForBox>
-        <Content>
-          강북구 ㅇㅇ교회에 화재 발생 인근 주민들은 대피해주시길 바랍니다.
-        </Content>
+        <Content>{data.msg_CN}</Content>
       </ContentBox>
       {!openLocate && !openAction ? (
         <>
