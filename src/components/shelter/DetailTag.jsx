@@ -1,8 +1,42 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import LocationImoge from "@/assets/images/shelter/location.svg";
 import CallImoge from "@/assets/images/shelter/call.svg";
 import CancelImoge from "@/assets/images/shelter/cancel.svg";
+import ShelterMap from "@/components/shelter/ShelterMap";
 import PropTypes from "prop-types";
+
+export default function DetailTag({ setOpen }) {
+  // 더 알아보기 클릭 시 해당 지도로 이동
+  const onMoreInfoClick = () => {
+    window.open(`https://map.kakao.com/link/search/제주시 명월성로 5`);
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
+  return (
+    <TagBox>
+      <FlexRow>
+        <ShelterMap />
+        <TitleBox>
+          <Cancel onClick={handleCancel} />
+          <Title>노을 공원</Title>
+          <MoreLearn onClick={onMoreInfoClick}>더 알아보기</MoreLearn>
+        </TitleBox>
+      </FlexRow>
+      <FlexRow bottom="10px">
+        <Location />
+        <Content>서울특별시 강서구 화곡동 105-194</Content>
+      </FlexRow>
+      <FlexRow>
+        <Call />
+        <Content></Content>
+      </FlexRow>
+    </TagBox>
+  );
+}
 
 export const TagBox = styled.div`
   position: relative;
@@ -19,14 +53,6 @@ export const FlexRow = styled.div`
   flex-direction: row;
   align-items: center;
   margin-bottom: ${(props) => props.bottom || "0"};
-`;
-
-export const Map = styled.div`
-  width: 150px;
-  height: 150px;
-  border-radius: 16px;
-  background-color: #cdcdcd;
-  margin-bottom: 20px;
 `;
 
 export const TitleBox = styled.div`
@@ -91,33 +117,6 @@ export const Cancel = styled.div`
   background-repeat: no-repeat;
   cursor: pointer;
 `;
-
-export default function DetailTag({ setOpen }) {
-  const handleCancel = () => {
-    setOpen(false);
-  };
-
-  return (
-    <TagBox>
-      <FlexRow>
-        <Map></Map>
-        <TitleBox>
-          <Cancel onClick={handleCancel} />
-          <Title>노을 공원</Title>
-          <MoreLearn>더 알아보기</MoreLearn>
-        </TitleBox>
-      </FlexRow>
-      <FlexRow bottom="10px">
-        <Location />
-        <Content>서울특별시 강서구 화곡동 105-194</Content>
-      </FlexRow>
-      <FlexRow>
-        <Call />
-        <Content>010-0000-0000</Content>
-      </FlexRow>
-    </TagBox>
-  );
-}
 
 DetailTag.propTypes = {
   setOpen: PropTypes.func.isRequired,

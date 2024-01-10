@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import LocationImoge from "@/assets/images/shelter/location.svg";
 import CallImoge from "@/assets/images/shelter/call.svg";
+import Map from "@/components/map/Map";
 
 export const TagBox = styled.div`
   position: relative;
@@ -17,16 +18,6 @@ export const FlexRow = styled.div`
   flex-direction: row;
   align-items: center;
   margin-bottom: ${(props) => props.bottom || "0"};
-`;
-
-export const Map = styled.div`
-  width: 80%;
-  max-height: 276px;
-  height: 276px;
-  border-radius: 16px;
-  background-color: #cdcdcd;
-  margin-bottom: 20px;
-  margin-top: 40px;
 `;
 
 export const TitleBox = styled.div`
