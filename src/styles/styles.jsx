@@ -326,3 +326,28 @@ export const LText = styled.div`
   font-weight: 350;
   color: #333d42;
 `;
+/* MsgRecord 페이지 */
+export const Msgtable = styled.table`
+  margin-top: 10px;
+  padding: 14px;
+  text-align: center;
+  font-size: 6.5px;
+  font-weight: 900;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color: #8ed0f4;
+  background-color: #8ed0f4;
+  box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
+    -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+    
+  border-collapse: collapse;
+  th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  th {
+    color: #333d42;
+    background-color: #f2f2f2;
+  }
+`;
