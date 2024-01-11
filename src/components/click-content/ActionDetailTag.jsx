@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export default function ActionDetailTag() {
+  return (
+    <Wrapper>
+      <Content>준비 중입니다.</Content>
+    </Wrapper>
+  );
+}
+
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -17,11 +25,3 @@ export const Content = styled.div`
   font-weight: 400;
   pointer-events: none;
 `;
-
-export default function ActionDetailTag() {
-  return (
-    <Wrapper>
-      <Content>준비 중입니다.</Content>
-    </Wrapper>
-  );
-}

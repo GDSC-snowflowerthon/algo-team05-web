@@ -1,18 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Wrapper, Title, IntroText, ButtonStyle } from "@/styles/styles";
 import styled from "styled-components";
 import B_Map from "@/assets/images/map/beforemap.svg";
 import Tag from "@/components/map/Tag";
-
-export const BeforeMap = styled.div`
-  position: relative;
-  top: 20px;
-  width: 390px;
-  height: 552px;
-  background-repeat: no-repeat;
-  background: url(${B_Map});
-`;
+import { areas } from "@/data/Area";
+import { getTranslate } from "@/api/getTranslate";
 
 export default function SelectMap() {
   const navigate = useNavigate();
@@ -25,6 +18,20 @@ export default function SelectMap() {
   const handleSubmit = () => {
     navigate(`/shelter-list`, { state: area });
   };
+
+  // 번역 기능
+  useEffect(() => {
+    (async () => {
+      try {
+        const newData = await getTranslate(areas);
+        console.log(newData);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
+  }, []);
 
   // 자식 컴포넌트 Map으로 함수를 전달하여 자식 컴포넌트의 값을 부모 컴포넌트로 가져온다.
   return (
@@ -40,7 +47,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Seoul
+          {areas[0].label}
         </Tag>
         <Tag
           top="100px"
@@ -51,7 +58,7 @@ export default function SelectMap() {
           r="135"
           setArea={setArea}
         >
-          Incheon
+          {areas[1].label}
         </Tag>
         <Tag
           top="35px"
@@ -62,7 +69,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Gyeonggi-do
+          {areas[2].label}
         </Tag>
 
         <Tag
@@ -74,7 +81,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Gangwon-do
+          {areas[3].label}
         </Tag>
         <Tag
           top="197px"
@@ -85,7 +92,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Sejong
+          {areas[4].label}
         </Tag>
         <Tag
           top="213px"
@@ -96,7 +103,7 @@ export default function SelectMap() {
           r="-135"
           setArea={setArea}
         >
-          Daejeon
+          {areas[5].label}
         </Tag>
         <Tag
           top="165px"
@@ -107,7 +114,7 @@ export default function SelectMap() {
           r="-185"
           setArea={setArea}
         >
-          Chungcheongnam-do
+          {areas[6].label}
         </Tag>
         <Tag
           top="150px"
@@ -118,7 +125,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Chungcheongbuk-do
+          {areas[7].label}
         </Tag>
         <Tag
           top="180px"
@@ -129,7 +136,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Gyeongsangbuk-do
+          {areas[8].label}
         </Tag>
         <Tag
           top="305px"
@@ -140,7 +147,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Gyeongsangnam-do
+          {areas[9].label}
         </Tag>
         <Tag
           top="252px"
@@ -151,7 +158,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Daegu
+          {areas[10].label}
         </Tag>
         <Tag
           top="295px"
@@ -162,7 +169,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Ulsan
+          {areas[11].label}
         </Tag>
         <Tag
           top="335px"
@@ -173,7 +180,7 @@ export default function SelectMap() {
           r="-185"
           setArea={setArea}
         >
-          Busan
+          {areas[12].label}
         </Tag>
         <Tag
           top="265px"
@@ -184,7 +191,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Jeollabuk-do
+          {areas[13].label}
         </Tag>
         <Tag
           top="335px"
@@ -195,7 +202,7 @@ export default function SelectMap() {
           r="-185"
           setArea={setArea}
         >
-          Jeollanam-do
+          {areas[14].label}
         </Tag>
         <Tag
           top="375px"
@@ -206,7 +213,7 @@ export default function SelectMap() {
           r="-45"
           setArea={setArea}
         >
-          Gwangju
+          {areas[15].label}
         </Tag>
         <Tag
           top="485px"
@@ -217,7 +224,7 @@ export default function SelectMap() {
           r="-180"
           setArea={setArea}
         >
-          Jeju
+          {areas[16].label}
         </Tag>
       </BeforeMap>
       <IntroText>{!area ? "지역을 선택해주세요." : area}</IntroText>
@@ -238,3 +245,12 @@ export default function SelectMap() {
     </Wrapper>
   );
 }
+
+export const BeforeMap = styled.div`
+  position: relative;
+  top: 20px;
+  width: 390px;
+  height: 552px;
+  background-repeat: no-repeat;
+  background: url(${B_Map});
+`;
