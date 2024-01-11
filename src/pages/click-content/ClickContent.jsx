@@ -18,13 +18,15 @@ export default function ClickContent() {
   const [openLocate, setOpenLocate] = useState(false);
   const [openAction, setOpenAction] = useState(false);
   const [data, setData] = useState();
+  let cookie = localStorage.getItem("accessToken");
+  console.log(cookie);
 
   const getMessageData = async () => {
     try {
       let response = await fetch(`http://3.39.62.158:8080/disaster/message`, {
         headers: {
           "X-ACCESS-TOKEN":
-            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmaXNoQG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3MDQ5NjgxNjIsImV4cCI6MTcwNTAwNDE2Mn0.eEEb5q8SKE_K5aShIpfo538JExPr6iDSh17KnFoRj4-GBSgRZPkhiTwLom98jPV8jNtp8YBXHe7oimVoyAKOzQ",
+            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhYmMiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzA0OTgyNzcwLCJleHAiOjE3MDUwMTg3NzB9.2ih12UWw8T9XmJntL_AAyiwn8NPWdo0lFqzQLg9IgiS7CjTEQH03AaR7hK9yHvTW-bAV_m975DpJvDJgFkRynA",
         },
       });
 
@@ -41,6 +43,7 @@ export default function ClickContent() {
     }
   };
 
+  /*
   // 번역 기능
   useEffect(() => {
     (async () => {
@@ -54,6 +57,7 @@ export default function ClickContent() {
       }
     })();
   }, []);
+  */
 
   const handleLocation = () => {
     setOpenAction(false);
