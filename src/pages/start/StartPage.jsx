@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { Main, Main_2, Main_3, StartButtonStyle, Wrapper } from "../../styles/styles";
 import { useNavigate } from "react-router-dom";
-import Logo from "@/assets/images/logo.svg";
+import Logo from "@/assets/images/start/logo.svg";
 
 export default function StartPage() {
     const navigate = useNavigate();
