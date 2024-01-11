@@ -40,6 +40,7 @@ export const ButtonStyle = styled.button`
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
   cursor: pointer;
+  font-famiy: "Chakra petch";
 `;
 
 export const TextLeft = styled.div`
