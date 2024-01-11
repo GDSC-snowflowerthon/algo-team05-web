@@ -398,3 +398,18 @@ export const InputStyled = styled.input`
   backgroundcolor: #ccc;
   color: ${(props) => (props.value ? "#333D42" : "#ccc")};
 `;
+
+/* Register 화면 스타일 */
+export const ErrorMessage = styled.div`
+  color: #333d42;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 3px 10px 3px 10px;
+  overflow: hidden;
+  opacity: ${(props) => (props.isFormValid ? 1 : 0)};
+  transition: opacity 0.5s;
+
+  p {
+    color: red;
+  }
+`;
