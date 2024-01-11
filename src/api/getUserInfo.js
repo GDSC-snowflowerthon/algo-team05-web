@@ -1,10 +1,9 @@
-const getUserInfo = async () => {
+const getUserInfo = async (cookie) => {
   try {
     let response = await fetch(`http://3.39.62.158:8080/setting`, {
       method: "GET",
       headers: {
-        "X-ACCESS-TOKEN":
-          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTEiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzA0OTg3OTEzLCJleHAiOjE3MDUwMjM5MTN9.DX4IKjjfexrbwroszGojFVie_H9m-FSVtPZljk6ccQE7LHySlWCpVPUpS3ZaA2Cm9DsxpfHUtgDAEm0zQMuf5w",
+        "X-ACCESS-TOKEN": cookie,
       },
     });
 
