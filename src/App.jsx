@@ -12,6 +12,7 @@ import LoginPage from "@/pages/login/Loginpage";
 import MsgRecordPage from "@/pages/record/MsgRecord";
 import RegisterPage from "@/pages/register/RegisterPage";
 import { requestPermission } from "./firebase-massaging.js";
+//import'@/assets/fonts/Fonts.css'
 
 const useNotification = (title, options) => {
   if (!("Notification" in window)) {
