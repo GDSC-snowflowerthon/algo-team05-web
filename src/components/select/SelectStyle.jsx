@@ -1,25 +1,7 @@
 import styled from "styled-components";
-import { useState } from "react";
 import Select from "react-select";
-import PropTypes from "prop-types";
 
-export default function SelectBar({ data }) {
-  const options = data;
-  const [selectOnline, setSelectOnline] = useState(options[0]);
-  //안에 들어가는 값을 받아야해서 state사용
-
-  return (
-    <div>
-      <StyledSelect
-        options={options} //위에서 만든 배열을 select로 넣기
-        onChange={setSelectOnline} //값이 바뀌면 setState되게
-        defaultValue={selectOnline}
-      />
-    </div>
-  );
-}
-
-const StyledSelect = styled(Select).attrs({
+export const StyledSelect = styled(Select).attrs({
   classNamePrefix: "react-select",
 })`
   .react-select__control {
@@ -88,7 +70,3 @@ const StyledSelect = styled(Select).attrs({
     color: #50a1df;
   }
 `;
-
-SelectBar.propTypes = {
-  data: PropTypes.array, // or whatever type your 'data' should be
-};
