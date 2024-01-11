@@ -20,6 +20,8 @@ import { shelters } from "@/data/Shelters";
 import { getShelter } from "@/api/getShelter";
 
 export default function Shelter() {
+  const cookie = localStorage.getItem("accessToken");
+
   const location = useLocation();
   const [data, setData] = useState(location.state.area || null);
   console.log(data); // 지역을 받아옵니다.
@@ -58,7 +60,7 @@ export default function Shelter() {
 
     (async () => {
       try {
-        setShelterList(await getShelter(keyword));
+        setShelterList(await getShelter(keyword, cookie));
         console.log(shelterList);
         // Do something with the translationData
       } catch (error) {
