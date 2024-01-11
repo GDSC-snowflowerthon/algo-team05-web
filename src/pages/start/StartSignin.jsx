@@ -3,7 +3,7 @@ import {
   Main,
   Main_2,
   Main_3,
-  ButtonStyle,
+  StartButtonStyle,
   Wrapper,
 } from "../../styles/styles";
 import { useNavigate } from "react-router-dom";
@@ -51,18 +51,6 @@ export default function StartPage() {
         <Main_2 className="Main2">Alert Global</Main_2>
       </Main>
       <Main_3 className="Main3">세계인을 위한 재난문자 안내 서비스</Main_3>
-
-      <ButtonStyle onClick={goLogin}>로그인 (Signin)</ButtonStyle>
-      <ButtonStyle
-        onClick={goRegister}
-        style={{
-          backgroundColor: "#F9FAFF",
-          color: "#8DA6BB",
-          marginTop: "20px",
-        }}
-      >
-        회원가입 (SignUp)
-      </ButtonStyle>
     </Wrapper>
   );
 }

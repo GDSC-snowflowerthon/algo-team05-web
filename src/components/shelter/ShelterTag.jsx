@@ -46,22 +46,34 @@ export const ShelterIcon = styled.div`
   background-repeat: no-repeat;
 `;
 
-export default function ShelterTag({ setOpen }) {
+export default function ShelterTag({
+  setOpen,
+  title,
+  address,
+  setDetailTitle,
+  setDetailAddress,
+}) {
   const handleSelect = () => {
     setOpen(true);
+    setDetailTitle(title);
+    setDetailAddress(address);
   };
 
   return (
     <ShelterBox onClick={handleSelect}>
-      <ShelterTitle>노을 공원</ShelterTitle>
+      <ShelterTitle>{title}</ShelterTitle>
       <FlexRow>
         <ShelterIcon />
-        <ShelterContent>서울특별시 강서구 화곡동 105-194</ShelterContent>
+        <ShelterContent>{address}</ShelterContent>
       </FlexRow>
     </ShelterBox>
   );
 }
 
 ShelterTag.propTypes = {
+  title: PropTypes.string,
+  address: PropTypes.string,
   setOpen: PropTypes.func.isRequired,
+  setDetailTitle: PropTypes.func.isRequired,
+  setDetailAddress: PropTypes.func.isRequired,
 };

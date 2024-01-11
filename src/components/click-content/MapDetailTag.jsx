@@ -3,6 +3,30 @@ import LocationImoge from "@/assets/images/shelter/location.svg";
 import CallImoge from "@/assets/images/shelter/call.svg";
 import Map from "@/components/map/Map";
 
+export default function MapDetailTag() {
+  const onMoreInfoClick = () => {
+    window.open(`https://map.kakao.com/link/search/제주시 명월성로 5`);
+  };
+
+  return (
+    <>
+      <Map />
+      <TagBox>
+        <Title>노을 공원</Title>
+        <FlexRow bottom="10px">
+          <Location />
+          <Content>서울특별시 강서구 화곡동 105-194</Content>
+        </FlexRow>
+        <FlexRow>
+          <Call />
+          <Content>010-0000-0000</Content>
+        </FlexRow>
+        <MoreLearn onClick={onMoreInfoClick}>더 알아보기</MoreLearn>
+      </TagBox>
+    </>
+  );
+}
+
 export const TagBox = styled.div`
   position: relative;
   display: flex;
@@ -75,23 +99,3 @@ export const MoreLearn = styled.div`
   max-width: 30%;
   cursor: pointer;
 `;
-
-export default function MapDetailTag() {
-  return (
-    <>
-      <Map />
-      <TagBox>
-        <Title>노을 공원</Title>
-        <FlexRow bottom="10px">
-          <Location />
-          <Content>서울특별시 강서구 화곡동 105-194</Content>
-        </FlexRow>
-        <FlexRow>
-          <Call />
-          <Content>010-0000-0000</Content>
-        </FlexRow>
-        <MoreLearn>더 알아보기</MoreLearn>
-      </TagBox>
-    </>
-  );
-}

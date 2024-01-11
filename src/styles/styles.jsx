@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { theme } from "@/styles/theme";
 import InfoImoge from "@/assets/images/shelter/information.svg";
 import SearchImoge from "@/assets/images/shelter/search.svg";
@@ -40,7 +40,23 @@ export const ButtonStyle = styled.button`
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  z-index: 100;
+`;
+
+export const TextLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 80%;
+`;
+
+export const ErrorBox = styled.div`
+  position: absolute;
+  visibility: ${(props) => props.visible || "hidden"};
+  color: ${(props) => props.color || "none"};
+  top: ${(props) => props.top || "0px"};
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
 `;
 
 // 활성화 아닌 경우
@@ -58,6 +74,9 @@ export const Title = styled.div`
   font-weight: 700;
   color: #333d42;
   pointer-events: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ContentBox = styled.div`
@@ -219,18 +238,17 @@ export const DetailTagBox = styled.div`
   z-index: 100;
 `;
 
-
 /* 첫 화면 Start 스타일*/
 export const SettingsButton = styled.button`
-    position: absolute;
-    background: none;
-    border: none;
-    outline: none;
-    img {
-        width: 30px;
-    }
-    display: flex;
-    margin: 10px;
+  position: absolute;
+  background: none;
+  border: none;
+  outline: none;
+  img {
+    width: 30px;
+  }
+  display: flex;
+  margin: 10px;
 `;
 
 export const Main = styled.div`
@@ -251,7 +269,7 @@ export const Main_2 = styled.div`
   font-weight: 350;
   color: #333d42;
   text-align: center;
-  
+
   opacity: 0;
   transition: opacity 1s;
 
@@ -266,7 +284,7 @@ export const Main_3 = styled.div`
   font-weight: 350;
   color: #333d42;
   text-align: center;
-  
+
   opacity: 0;
   transition: opacity 1s;
 
@@ -283,7 +301,7 @@ export const StartButtonStyle = styled.button`
   font-weight: 400;
   color: #f9faff;
   border-radius: 15px;
-  border-color : #8ed0f4;
+  border-color: #8ed0f4;
   background-color: #8ed0f4;
   box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
     -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
@@ -300,24 +318,29 @@ const fadeIn = keyframes`
 
 /* quiz 페이지 스타일*/
 export const RegisterButtonStyle = styled.button`
-    margin-top: ${(props) => props.top || "0"};
-    width: 50%;
-    padding: 14px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: #f9faff;
-    border-radius: 15px;
-    border-color : #8ed0f4;
-    background-color: ${(props) => (props.disabled ? '#ccc' : '#8ed0f4')}; /* isFormValid가 false면 회색, true면 기존 색상 */
-    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
-      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  margin-top: ${(props) => props.top || "0"};
+  width: 50%;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color: #8ed0f4;
+  background-color: ${(props) =>
+    props.disabled
+      ? "#ccc"
+      : "#8ed0f4"}; /* isFormValid가 false면 회색, true면 기존 색상 */
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
 `;
 export const Ttitle = styled.div`
-  margin-top: 95px;
+  margin-top: 115px;
   font-size: 25px;
-  font-weight: 350;
   color: #333d42;
+  pointer-events: none;
+  color: #333d42;
+  font-weight: 400;
 `;
 
 export const LText = styled.div`
@@ -444,4 +467,33 @@ export const InputStyled = styled.input`
 /* Register 화면 스타일 */
 export const ErrorMessage = styled.div`
   color: #333d42;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 3px 10px 3px 10px;
+  overflow: hidden;
+  opacity: ${(props) => (props.isFormValid ? 1 : 0)};
+  transition: opacity 0.5s;
+
+  p {
+    color: red;
+  }
+`;
+
+export const SelectStyled = styled.select`
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 8px;
+  border: 1px solid #333d42;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 14px;
+  height: 43px;
+  backgroundcolor: #ccc;
+`;
+
+export const RegisterSelectBox = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 `;
