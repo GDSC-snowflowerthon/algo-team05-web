@@ -369,3 +369,31 @@ export const Msgtable = styled.table`
     background-color: #f2f2f2;
   }
 `;
+
+
+/* Login 화면 스타일 */
+export const Lttext = styled.div`
+  display: flex;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333d42;
+  align-items: left;
+`;
+
+export const Left = styled.div`
+  display: flex;
+  align-items: flex-start;
+  `;
+
+export const InputStyled = styled.input`
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #333D42;
+  border-radius: 5px;
+  width: 75%;
+  font-size: 14px;
+  height: 28px;
+  backgroundcolor: #ccc;
+  color: ${(props) => (props.value ? "#333D42" : "#ccc")};
+`;
