@@ -412,3 +412,15 @@ export const ErrorMessage = styled.div`
     color: red;
   }
 `;
+
+export const SelectStyled = styled.select`
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 8px;
+  border: 1px solid #333D42;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 14px;
+  height: 43px;
+  backgroundcolor: #ccc;
+`;
