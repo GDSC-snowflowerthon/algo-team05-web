@@ -1,4 +1,5 @@
 export const codes = [
+  { value: "0", label: "" },
   { value: "ko", label: "한국어" },
   { value: "en", label: "English" },
   { value: "ja", label: "日本語" },

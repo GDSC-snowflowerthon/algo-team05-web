@@ -40,7 +40,6 @@ export const ButtonStyle = styled.button`
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  z-index: 100;
 `;
 
 export const TextLeft = styled.div`
@@ -48,6 +47,16 @@ export const TextLeft = styled.div`
   flex-direction: column;
   text-align: left;
   width: 80%;
+`;
+
+export const ErrorBox = styled.div`
+  position: absolute;
+  visibility: ${(props) => props.visible || "hidden"};
+  color: ${(props) => props.color || "none"};
+  top: ${(props) => props.top || "0px"};
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
 `;
 
 // 활성화 아닌 경우
@@ -442,4 +451,11 @@ export const SelectStyled = styled.select`
   font-size: 14px;
   height: 43px;
   backgroundcolor: #ccc;
+`;
+
+export const RegisterSelectBox = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 `;

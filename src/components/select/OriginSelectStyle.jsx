@@ -1,40 +1,15 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import Select from "react-select";
 
-export default function OriginSelect({ data, setCity }) {
-  const options = data;
-  const [selectOnline, setSelectOnline] = useState(options[0]);
-  setCity(selectOnline);
-  //  setSelectOnline(selectedData);
-  //안에 들어가는 값을 받아야해서 state사용
-
-  return (
-    <div>
-      <StyledSelect
-        options={options} //위에서 만든 배열을 select로 넣기
-        onChange={setSelectOnline} //값이 바뀌면 setState되게
-        defaultValue={selectOnline}
-      />
-    </div>
-  );
-}
-
-OriginSelect.propTypes = {
-  data: PropTypes.array, // or whatever type your 'data' should be
-  setCity: PropTypes.func,
-};
-
-export const StyledSelect = styled(Select).attrs({
+export const OriginStyledSelect = styled(Select).attrs({
   classNamePrefix: "react-select",
 })`
   .react-select__control {
-    background-color: #8ed0f4;
     width: 100%;
-    height: 40px;
-    border: none;
-    border-radius: 20px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #333d42;
+    background: #f9faff;
     display: flex;
     text-align: center;
     cursor: pointer;
@@ -43,15 +18,15 @@ export const StyledSelect = styled(Select).attrs({
     font-size: 15px;
   }
   .react-select__single-value {
-    color: #f9faff; /* 텍스트 색상 지정 */
+    text-align: left;
+    color: #333d42; /* 텍스트 색상 지정 */
     font-size: 15px;
     font-weight: 500;
   }
   .react-select__menu {
-    border-radius: 15px;
-    background: #8ed0f4;
-    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
-      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    border: 1px solid #333d42;
+    background: #f9faff;
     font-size: 15px;
     font-weight: 500;
     text-align: center;

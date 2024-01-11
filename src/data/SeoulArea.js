@@ -1,4 +1,5 @@
 export const seoulArea = [
+  { value: 0, label: "" },
   { value: "강남구", label: "강남구" },
   { value: "강동구", label: "강동구" },
   { value: "강북구", label: "강북구" },

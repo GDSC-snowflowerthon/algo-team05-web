@@ -7,6 +7,7 @@ import {
   Ttitle,
   Wrapper,
   TextLeft,
+  ErrorBox,
 } from "../../styles/styles";
 import { useNavigate } from "react-router-dom";
 
@@ -15,11 +16,13 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [correctMessage, setCorrectMessage] = useState("");
 
   const isFormValid = email !== "" && password !== "";
 
   const handleSignIn = async () => {
     if (isFormValid) {
+      setCorrectMessage("로그인이 가능합니다.");
       try {
         const response = await fetch("http://3.39.62.158:8080/users/login", {
           method: "POST",
@@ -98,21 +101,29 @@ export default function LoginPage() {
         onChange={handlePasswordChange}
         placeholder="password"
       ></InputStyled>
-      <div
-        style={{
-          position: "absolute",
-          top: "525px",
-          opacity: errorMessage ? 1 : 0,
-          height: errorMessage ? "auto" : 0,
-          overflow: "hidden",
-          transition: "opacity 0.5s, height 0.5s",
-        }}
-      >
-        <p style={{ color: "#ED1B24" }}>{errorMessage}</p>
-      </div>
-      <ButtonStyle top="150px" onClick={handleSignIn}>
-        로그인(Signin)
-      </ButtonStyle>
+      {isFormValid ? (
+        <ErrorBox visible="visible" top="440px" color="#8ED0F4">
+          {correctMessage}
+        </ErrorBox>
+      ) : (
+        <ErrorBox visible="visible" top="440px" color="#ED1B24">
+          {errorMessage}
+        </ErrorBox>
+      )}
+      {!isFormValid ? (
+        <ButtonStyle
+          top="77px"
+          color="rgba(141, 166, 187, 0.3)"
+          bg="#e7edf2"
+          onClick={handleSignIn}
+        >
+          로그인(SignIn)
+        </ButtonStyle>
+      ) : (
+        <ButtonStyle top="77px" onClick={handleSignIn}>
+          로그인(SignIn)
+        </ButtonStyle>
+      )}
     </Wrapper>
   );
 }
