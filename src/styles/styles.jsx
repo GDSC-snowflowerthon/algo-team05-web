@@ -324,5 +324,124 @@ export const LText = styled.div`
   margin-top: 10px;
   font-size: 16px;
   font-weight: 350;
+  pointer-events: none;
+  color: #333d42;
+  font-weight: 400;
+`;
+
+export const QuizButtonStyle = styled.button`
+    margin-top: ${(props) => props.top || "0"};
+    width: 30%;
+    height: 10%;
+    position: absolute;
+    bottom : 15%;
+    padding: 14px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #f9faff;
+    border-radius: 15px;
+    border-color : #8ed0f4;
+    background-color: ${(props) => (props.disabled ? '#ccc' : '#8ed0f4')}; /* isFormValid가 false면 회색, true면 기존 색상 */
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+`;
+
+export const QuizStyle = styled.div`
+    margin-top: ${(props) => props.top || "0"};
+    width: 65%;
+    height: 40%;
+    position: absolute;
+    top: 150px;
+    bottom: auto;
+    padding: 14px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #333D42;
+    border-radius: 15px;
+    border-color: #FFFFFF;
+    background-color: #FFFFF;
+    /* isFormValid가 false면 회색, true면 기존 색상 */
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+`;
+
+/* Home 화면 스타일 */
+export const HomeButtonStyle = styled.button`
+  margin-top: 20px;
+  width: 50%;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color: #8ed0f4;
+  background-color: #8ed0f4;
+  box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
+    -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+`;
+/* MsgRecord 페이지 */
+export const Msgtable = styled.table`
+  margin-top: 10px;
+  padding: 14px;
+  text-align: center;
+  font-size: 6.5px;
+  font-weight: 900;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color: #8ed0f4;
+  background-color: #8ed0f4;
+  box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
+    -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+
+  border-collapse: collapse;
+  th,
+  td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  th {
+    color: #333d42;
+    background-color: #f2f2f2;
+  }
+`;
+
+/* Login 화면 스타일 */
+export const Lttext = styled.div`
+  display: flex;
+  margin-left: 8px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333d42;
+  align-items: left;
+  pointer-events: none;
+  color: #333d42;
+  font-size: 14px;
+  font-weight: 400;
+`;
+
+export const Left = styled.div`
+  display: flex;
+  align-items: flex-start;
+`;
+
+export const InputStyled = styled.input`
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #333d42;
+  background: #f9faff;
+  width: 75%;
+  font-size: 14px;
+  height: 28px;
+  color: ${(props) => (props.value ? "#333D42" : "#ccc")};
+`;
+
+/* Register 화면 스타일 */
+export const ErrorMessage = styled.div`
   color: #333d42;
 `;
