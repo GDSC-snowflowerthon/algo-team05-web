@@ -33,7 +33,7 @@ const StyledSelect = styled(Select).attrs({
     text-align: center;
     cursor: pointer;
     margin-top: 12px;
-    padding: 0px 27px 0 27px;
+    padding: 0px 10px 0 10px;
     font-size: 15px;
   }
   .react-select__single-value {

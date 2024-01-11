@@ -339,7 +339,7 @@ export const HomeButtonStyle = styled.button`
   font-weight: 700;
   color: #f9faff;
   border-radius: 15px;
-  border-color : #8ed0f4;
+  border-color: #8ed0f4;
   background-color: #8ed0f4;
   box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
     -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
@@ -371,7 +371,6 @@ export const Msgtable = styled.table`
   }
 `;
 
-
 /* Login 화면 스타일 */
 export const Lttext = styled.div`
   display: flex;
@@ -385,12 +384,12 @@ export const Lttext = styled.div`
 export const Left = styled.div`
   display: flex;
   align-items: flex-start;
-  `;
+`;
 
 export const InputStyled = styled.input`
   margin-top: 10px;
   padding: 8px;
-  border: 1px solid #333D42;
+  border: 1px solid #333d42;
   border-radius: 5px;
   width: 75%;
   font-size: 14px;

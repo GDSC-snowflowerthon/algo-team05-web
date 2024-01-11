@@ -50,12 +50,12 @@ function App() {
     <>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="/message-content" element={<ClickContent />} />
         <Route path="/map" element={<SelectMap />} />
         <Route path="/shelter-list" element={<Shelter />} />
-        <Route path="/start" element={<StartPage />} />
+        <Route path="/" element={<StartPage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage/>}/>

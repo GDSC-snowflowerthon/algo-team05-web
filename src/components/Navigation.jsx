@@ -52,7 +52,7 @@ export default function Navigation() {
   };
 
   const handleNavigate = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   return (
