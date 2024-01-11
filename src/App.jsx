@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import Home from "@/pages/home/Home";
 import TestPage from "@/pages/test/TestPage";
 import ClickContent from "@/pages/click-content/ClickContent";
 import Navigation from "@/components/Navigation";
@@ -46,6 +47,7 @@ function App() {
     <>
       <Navigation />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="/message-content" element={<ClickContent />} />
         <Route path="/map" element={<SelectMap />} />
