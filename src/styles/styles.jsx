@@ -326,3 +326,19 @@ export const LText = styled.div`
   font-weight: 350;
   color: #333d42;
 `;
+
+/* Home 화면 스타일 */
+export const HomeButtonStyle = styled.button`
+  margin-top: 20px;
+  width: 50%;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color : #8ed0f4;
+  background-color: #8ed0f4;
+  box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
+    -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+`;
