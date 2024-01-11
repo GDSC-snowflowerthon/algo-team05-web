@@ -3,7 +3,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import SelectBar from "@/components/Setting/SelectBar";
 import { codes } from "@/data/CountryCode";
-import { area } from "@/data/Area";
+import { areas } from "@/data/Area";
 
 export default function Setting({ setIsShow }) {
   const [isOn, setIsOn] = useState(true);
@@ -24,7 +24,7 @@ export default function Setting({ setIsShow }) {
           <Content top="19px">언어(lenguage)</Content>
           <SelectBar data={codes} />
           <Content top="11px">지역(area)</Content>
-          <SelectBar data={area} />
+          <SelectBar data={areas} />
           <Content top="11px">번역(translate)</Content>
           {isOn ? (
             <OnOffBox onClick={handleOn}>
