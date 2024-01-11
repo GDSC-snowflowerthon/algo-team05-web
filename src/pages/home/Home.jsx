@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { HomeButtonStyle, Wrapper,SettingsButton, Left } from "../../styles/styles";
-import shelter from "@/assets/images/shelter.svg";
-import record from "@/assets/images/record.svg";
-import quiz from "@/assets/images/quiz.svg";
+import { HomeButtonStyle, Wrapper} from "../../styles/styles";
+import shelter from "@/assets/images/home/shelter.svg";
+import record from "@/assets/images/home/record.svg";
+import quiz from "@/assets/images/home/quiz.svg";
 
 export default function Home() {
     const navigate = useNavigate();
