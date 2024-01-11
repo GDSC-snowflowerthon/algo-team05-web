@@ -5,7 +5,7 @@ import record from "@/assets/images/home/record.svg";
 import quiz from "@/assets/images/home/quiz.svg";
 
 export default function Home() {
-  // localStorage.getItem("accessToken");
+  localStorage.getItem("accessToken");
 
   const navigate = useNavigate();
 

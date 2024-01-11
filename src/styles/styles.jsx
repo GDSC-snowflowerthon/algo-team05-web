@@ -43,6 +43,13 @@ export const ButtonStyle = styled.button`
   z-index: 100;
 `;
 
+export const TextLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 80%;
+`;
+
 // 활성화 아닌 경우
 /*
   color: rgba(141, 166, 187, 0.3);
@@ -58,6 +65,9 @@ export const Title = styled.div`
   font-weight: 700;
   color: #333d42;
   pointer-events: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ContentBox = styled.div`
@@ -316,17 +326,21 @@ export const RegisterButtonStyle = styled.button`
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
 `;
 export const Ttitle = styled.div`
-  margin-top: 95px;
+  margin-top: 115px;
   font-size: 25px;
-  font-weight: 350;
   color: #333d42;
+  pointer-events: none;
+  color: #333d42;
+  font-weight: 400;
 `;
 
 export const LText = styled.div`
   margin-top: 10px;
   font-size: 16px;
   font-weight: 350;
+  pointer-events: none;
   color: #333d42;
+  font-weight: 400;
 `;
 
 /* Home 화면 스타일 */
@@ -374,11 +388,16 @@ export const Msgtable = styled.table`
 /* Login 화면 스타일 */
 export const Lttext = styled.div`
   display: flex;
+  margin-left: 8px;
   margin-top: 10px;
   font-size: 16px;
   font-weight: 400;
   color: #333d42;
   align-items: left;
+  pointer-events: none;
+  color: #333d42;
+  font-size: 14px;
+  font-weight: 400;
 `;
 
 export const Left = styled.div`
@@ -388,13 +407,13 @@ export const Left = styled.div`
 
 export const InputStyled = styled.input`
   margin-top: 10px;
-  padding: 8px;
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid #333d42;
-  border-radius: 5px;
+  background: #f9faff;
   width: 75%;
   font-size: 14px;
   height: 28px;
-  backgroundcolor: #ccc;
   color: ${(props) => (props.value ? "#333D42" : "#ccc")};
 `;
 
@@ -417,7 +436,7 @@ export const SelectStyled = styled.select`
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 8px;
-  border: 1px solid #333D42;
+  border: 1px solid #333d42;
   border-radius: 5px;
   width: 80%;
   font-size: 14px;
