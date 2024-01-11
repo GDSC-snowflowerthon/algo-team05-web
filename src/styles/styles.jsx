@@ -329,6 +329,21 @@ export const LText = styled.div`
   color: #333d42;
 `;
 
+/* Home 화면 스타일 */
+export const HomeButtonStyle = styled.button`
+  margin-top: 20px;
+  width: 50%;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color: #8ed0f4;
+  background-color: #8ed0f4;
+  box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
+    -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+`;
 /* MsgRecord 페이지 */
 export const Msgtable = styled.table`
   margin-top: 10px;
@@ -353,5 +368,47 @@ export const Msgtable = styled.table`
   th {
     color: #333d42;
     background-color: #f2f2f2;
+  }
+`;
+
+/* Login 화면 스타일 */
+export const Lttext = styled.div`
+  display: flex;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333d42;
+  align-items: left;
+`;
+
+export const Left = styled.div`
+  display: flex;
+  align-items: flex-start;
+`;
+
+export const InputStyled = styled.input`
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #333d42;
+  border-radius: 5px;
+  width: 75%;
+  font-size: 14px;
+  height: 28px;
+  backgroundcolor: #ccc;
+  color: ${(props) => (props.value ? "#333D42" : "#ccc")};
+`;
+
+/* Register 화면 스타일 */
+export const ErrorMessage = styled.div`
+  color: #333d42;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 3px 10px 3px 10px;
+  overflow: hidden;
+  opacity: ${(props) => (props.isFormValid ? 1 : 0)};
+  transition: opacity 0.5s;
+
+  p {
+    color: red;
   }
 `;

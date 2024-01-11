@@ -8,6 +8,7 @@ import SelectMap from "@/pages/map/SelectMap";
 import Shelter from "@/pages/shelter/Shelter";
 import StartPage from "@/pages/start/StartPage";
 import QuizPage from "@/pages/quiz/quizpage";
+import LoginPage from "@/pages/login/Loginpage";
 import { requestPermission } from "./firebase-massaging.js";
 
 const useNotification = (title, options) => {
@@ -54,6 +55,7 @@ function App() {
         <Route path="/shelter-list" element={<Shelter />} />
         <Route path="/start" element={<StartPage />} />
         <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <button onClick={triggerNotif}>클릭</button>
     </>
