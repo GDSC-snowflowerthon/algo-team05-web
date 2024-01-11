@@ -7,24 +7,16 @@ export const Tags = styled.button`
   top: ${(props) => props.top || "0"};
   left: ${(props) => props.left || "0"};
   padding: 5px;
-  border: 1px solid #333d42;
   border-radius: 15px;
   background-color: #fff;
   font-size: 8px;
-  color: #333d42;
   font-weight: 400;
   text-align: center;
   cursor: pointer;
   z-index: 100;
 
   &:hover {
-    outline: 2px solid ${(props) => props.hover || "#3498db"};
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-  }
-
-  &.clicked {
-    /* Add your default styles here for the clicked state */
-    outline: 2px solid ${(props) => props.hover || "#3498db"};
+    : 2px solid "#F7F0D4";
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
   }
 `;
@@ -45,23 +37,34 @@ export const Arrow = styled.div`
   cursor: pointer;
 `;
 
-export default function Tag({ top, left, hover, children, x, y, r, setArea }) {
-  // click 이벤트를 관리하기 위한 state
-  const [clicked, setClicked] = useState(false);
-
+export default function Tag({
+  top,
+  left,
+  hover,
+  children,
+  x,
+  y,
+  r,
+  setArea,
+  selectedArea,
+}) {
   const handleSelect = () => {
-    setClicked(!clicked);
     setArea(children);
   };
+  console.log("c: ", children);
+  console.log("s: ", selectedArea);
 
   // clicke 시 "clicked" class를 추가하여 미리 정의한 clicked 이벤트를 활성화한다.
   return (
     <Tags
       top={top}
       left={left}
-      hover={hover}
-      className={clicked ? "clicked" : ""}
       onClick={handleSelect}
+      style={{
+        backgroundColor: children === selectedArea ? hover : "transparent", // 클릭된 경우에 특정 스타일 부여
+        color: children === selectedArea ? "#f9faff" : "#333d42",
+        boxShadow: "0 0 5px rgba(52, 152, 219, 0.5)",
+      }}
     >
       {children}
       <Arrow x={x} y={y} r={r} />
@@ -79,4 +82,5 @@ Tag.propTypes = {
   r: PropTypes.string,
   clicked: PropTypes.bool,
   setArea: PropTypes.func.isRequired,
+  selectedArea: PropTypes.func.string,
 };
