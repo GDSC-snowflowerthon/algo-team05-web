@@ -27,7 +27,7 @@ export default function RegisterPage() {
   const [gu, setGu] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [correctMessage, setCorrectMessage] = useState("");
-  const [area, setArea] = useState(
+  const [area, setArea] = useState([
     { value: 0, label: "" },
     { value: "0", label: "강남구" },
     { value: "1", label: "강동구" },
@@ -50,8 +50,8 @@ export default function RegisterPage() {
     { value: "18", label: "은평구" },
     { value: "19", label: "종로구" },
     { value: "20", label: "중구" },
-    { value: "21", label: "중량구" }
-  );
+    { value: "21", label: "중량구" },
+  ]);
   /*
   { value: 0, label: "" },
   { value: 0, label: "서울" },

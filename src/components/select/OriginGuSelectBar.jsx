@@ -4,7 +4,7 @@ import { OriginStyledSelect } from "@/components/select/OriginSelectStyle";
 
 export default function OriginGuSelectBar({ data, setGu }) {
   const options = data;
-  const [selectOnline, setSelectOnline] = useState(options[0]);
+  const [selectOnline, setSelectOnline] = useState("");
 
   const handleSelectChange = (selectedOption) => {
     setSelectOnline(selectedOption);

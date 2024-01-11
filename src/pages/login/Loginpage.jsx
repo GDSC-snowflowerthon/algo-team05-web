@@ -37,7 +37,7 @@ export default function LoginPage() {
 
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           localStorage.setItem("accessToken", data.jwtAccessToken);
           //둘 다 저장해야하나요??
           localStorage.setItem("language", data.lan);
