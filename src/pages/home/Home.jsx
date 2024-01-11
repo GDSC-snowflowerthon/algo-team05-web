@@ -1,40 +1,53 @@
 import { useNavigate } from "react-router-dom";
-import { HomeButtonStyle, Wrapper} from "../../styles/styles";
+import { HomeButtonStyle, Wrapper } from "../../styles/styles";
 import shelter from "@/assets/images/home/shelter.svg";
 import record from "@/assets/images/home/record.svg";
 import quiz from "@/assets/images/home/quiz.svg";
 
 export default function Home() {
-    const navigate = useNavigate();
+  // localStorage.getItem("accessToken");
 
-    const goToShelterPage = () => {
-        // navigate(""); 대피소 리스트 경로
-    };
+  const navigate = useNavigate();
 
-    const goToQuizPage = () => {
-        navigate("/quiz");
-    };
+  const goToShelterPage = () => {
+    navigate("/map");
+  };
 
-    const goToRecordPage = () => {
-        navigate("/record");
-    };
+  const goToQuizPage = () => {
+    navigate("/quiz");
+  };
 
-    return (
+  const goToRecordPage = () => {
+    navigate("/record");
+  };
+
+  return (
     <Wrapper>
-        <img style={{marginTop:'130px'}} src={shelter} alt="Shelter Icon" className="icon" />
-        <HomeButtonStyle style={{marginTop:'20px'}}onClick={goToShelterPage}>
-            <span>대피소 확인</span>
-        </HomeButtonStyle>
+      <img
+        style={{ marginTop: "130px" }}
+        src={shelter}
+        alt="Shelter Icon"
+        className="icon"
+      />
+      <HomeButtonStyle style={{ marginTop: "20px" }} onClick={goToShelterPage}>
+        <span>대피소 확인</span>
+      </HomeButtonStyle>
 
-        <img style={{marginTop:'50px'}} src={record} alt="Shelter Icon" className="icon" />
-        <HomeButtonStyle onClick={goToRecordPage}>
-            재난 문자 기록
-        </HomeButtonStyle>
+      <img
+        style={{ marginTop: "50px" }}
+        src={record}
+        alt="Shelter Icon"
+        className="icon"
+      />
+      <HomeButtonStyle onClick={goToRecordPage}>재난 문자 기록</HomeButtonStyle>
 
-        <img style={{marginTop:'50px'}} src={quiz} alt="Shelter Icon" className="icon" />
-        <HomeButtonStyle onClick={goToQuizPage}>
-            재난 키워드 퀴즈
-        </HomeButtonStyle>
+      <img
+        style={{ marginTop: "50px" }}
+        src={quiz}
+        alt="Shelter Icon"
+        className="icon"
+      />
+      <HomeButtonStyle onClick={goToQuizPage}>재난 키워드 퀴즈</HomeButtonStyle>
     </Wrapper>
-    )
-};
+  );
+}
