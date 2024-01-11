@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Wrapper,RegisterButtonStyle, Ttitle, Msgtable, SettingsButton } from "../../styles/styles"
+import { Wrapper,RegisterButtonStyle, Ttitle, Msgtable } from "../../styles/styles"
 
 export default function MsgRecordPage() {
 
