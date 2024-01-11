@@ -18,6 +18,7 @@ import ShelterTag from "@/components/shelter/ShelterTag";
 import DetailTag from "@/components/shelter/DetailTag";
 import { shelters } from "@/data/Shelters";
 import { getTranslate } from "@/api/getTranslate";
+import { getShelter } from "@/api/getShelter";
 
 export default function Shelter() {
   const location = useLocation();
@@ -32,6 +33,8 @@ export default function Shelter() {
   const [detailTitle, setDetailTitle] = useState("");
   const [detailAddress, setDetailAddress] = useState("");
 
+  const [shelterList, setShelterList] = useState(shelters);
+
   // input 입력 값 변환 함수
   const handleChange = (event) => {
     setText(event.target.value);
@@ -39,6 +42,17 @@ export default function Shelter() {
 
   const handleSearch = (keyword) => {
     console.log("클릭");
+    setData(keyword);
+
+    (async () => {
+      try {
+        setShelterList(await getShelter(keyword));
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
   };
 
   // 번역 기능
@@ -53,15 +67,15 @@ export default function Shelter() {
         console.error("Error:", error);
       }
     })();
-  }, []);
+  }, [shelterList]);
 
   // 주어진 배열을 사용하여 ShelterTag를 생성하는 함수
   const renderShelterTags = () => {
     return shelters.map((shelter, index) => (
       <ShelterTag
         key={index} // React에서는 각 요소에 고유한 키를 제공하는 것이 좋습니다.
-        title={shelter.title}
-        address={shelter.address}
+        title={shelterList.title}
+        address={shelterList.address}
         setDetailTitle={setDetailTitle}
         setDetailAddress={setDetailAddress}
       />
@@ -77,7 +91,7 @@ export default function Shelter() {
       <SearchBox>
         <SearchInput type="text" value={text} onChange={handleChange} />
         <SearchIconBox>
-          <SearchIcon onClick={() => handleSearch(text)} />
+          <SearchIcon onClick={() => handleSearch(1147000000)} />
         </SearchIconBox>
       </SearchBox>
       <ShelterContent>{data}</ShelterContent>

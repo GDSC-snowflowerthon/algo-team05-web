@@ -357,9 +357,10 @@ export const Msgtable = styled.table`
   background-color: #8ed0f4;
   box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
     -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
-    
+
   border-collapse: collapse;
-  th, td {
+  th,
+  td {
     padding: 8px;
     border: 1px solid #ddd;
     text-align: left;
