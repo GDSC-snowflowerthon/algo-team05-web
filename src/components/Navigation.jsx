@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   position: fixed;
   margin: 0 auto;
   width: 100%;
-  max-height: 10px;
+  max-height: 60px;
   min-height: 1vh;
   display: flex;
   flex-direction: column;
@@ -23,8 +23,8 @@ export const NavigationBar = styled.div`
   align-items: center;
   width: 85%;
   height: 45px;
-  max-width: 320px;
-  margin-top: 20px;
+  max-width: 390px;
+  background-color: #f4f6ff;
 `;
 
 export const HomeBtn = styled.div`
@@ -33,6 +33,7 @@ export const HomeBtn = styled.div`
   background: url(${PlayStation});
   background-repeat: no-repeat;
   cursor: pointer;
+  margin-left: 30px;
 `;
 
 export const SettingBtn = styled.div`
@@ -41,6 +42,7 @@ export const SettingBtn = styled.div`
   background: url(${SetImoge});
   background-repeat: no-repeat;
   cursor: pointer;
+  margin-right: 30px;
 `;
 
 export default function Navigation() {
