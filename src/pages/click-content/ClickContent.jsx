@@ -24,14 +24,14 @@ export default function ClickContent() {
       let response = await fetch(`http://3.39.62.158:8080/disaster/message`, {
         headers: {
           "X-ACCESS-TOKEN":
-            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXRAbmF2ZXIuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTcwNDkxMjM1MywiZXhwIjoxNzA0OTQ4MzUzfQ.t18T0b-BVDa372kHrGdRgT5WV_3DYist1CLzgqmPjltMn7PIoRSvuILjwkektEOfoAbiwTPdb6LrD7Z1Pt1ssQ",
+            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmaXNoQG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3MDQ5NjgxNjIsImV4cCI6MTcwNTAwNDE2Mn0.eEEb5q8SKE_K5aShIpfo538JExPr6iDSh17KnFoRj4-GBSgRZPkhiTwLom98jPV8jNtp8YBXHe7oimVoyAKOzQ",
         },
       });
 
       if (response.ok) {
         // 여기에서 response.json() 또는 response.text()를 사용하여 데이터를 처리
         const data = await response.json();
-        setData(data);
+        // setData(data);
       } else {
         // 오류 응답 처리
         console.error(`Error: ${response.status} ${response.statusText}`);
@@ -88,7 +88,7 @@ export default function ClickContent() {
         <ContentForBox>
           <ContentFor>번역된 내용</ContentFor>
         </ContentForBox>
-        <Content>{data.msg_CN}</Content>
+        <Content></Content>
       </ContentBox>
       {!openLocate && !openAction ? (
         <>
