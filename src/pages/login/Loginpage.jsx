@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {  InputStyled, LText, Left, Lttext, StartButtonStyle, Ttitle, Wrapper } from "../../styles/styles";
+import {  InputStyled, LText, Lttext, StartButtonStyle, Ttitle, Wrapper } from "../../styles/styles";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
@@ -27,6 +27,9 @@ export default function LoginPage() {
 
                 if (response.ok) {
                     const data = await response.json();
+                    localStorage.setItem('accessToken', data.jwtAccessToken);
+                    //둘 다 저장해야하나요??
+                    // localStorage.setItem('refreshToken', data.jwtRefreshToken);
                     // 로그인 성공
                     console.log("로그인 성공");
                     setErrorMessage(data.message || '로그인 성공');
