@@ -5,10 +5,10 @@ import CancelImoge from "@/assets/images/shelter/cancel.svg";
 import ShelterMap from "@/components/shelter/ShelterMap";
 import PropTypes from "prop-types";
 
-export default function DetailTag({ setOpen }) {
+export default function DetailTag({ setOpen, title, address }) {
   // 더 알아보기 클릭 시 해당 지도로 이동
   const onMoreInfoClick = () => {
-    window.open(`https://map.kakao.com/link/search/제주시 명월성로 5`);
+    window.open(`https://map.kakao.com/link/search/${address}`);
   };
 
   const handleCancel = () => {
@@ -21,13 +21,13 @@ export default function DetailTag({ setOpen }) {
         <ShelterMap />
         <TitleBox>
           <Cancel onClick={handleCancel} />
-          <Title>노을 공원</Title>
+          <Title>{title}</Title>
           <MoreLearn onClick={onMoreInfoClick}>더 알아보기</MoreLearn>
         </TitleBox>
       </FlexRow>
       <FlexRow bottom="10px">
         <Location />
-        <Content>서울특별시 강서구 화곡동 105-194</Content>
+        <Content>{address}</Content>
       </FlexRow>
       <FlexRow>
         <Call />
@@ -118,5 +118,7 @@ export const Cancel = styled.div`
 `;
 
 DetailTag.propTypes = {
+  title: PropTypes.string,
+  address: PropTypes.string,
   setOpen: PropTypes.func.isRequired,
 };

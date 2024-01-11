@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { theme } from "@/styles/theme";
 import InfoImoge from "@/assets/images/shelter/information.svg";
 import SearchImoge from "@/assets/images/shelter/search.svg";
@@ -219,18 +219,17 @@ export const DetailTagBox = styled.div`
   z-index: 100;
 `;
 
-
 /* 첫 화면 Start 스타일*/
 export const SettingsButton = styled.button`
-    position: absolute;
-    background: none;
-    border: none;
-    outline: none;
-    img {
-        width: 30px;
-    }
-    display: flex;
-    margin: 10px;
+  position: absolute;
+  background: none;
+  border: none;
+  outline: none;
+  img {
+    width: 30px;
+  }
+  display: flex;
+  margin: 10px;
 `;
 
 export const Main = styled.div`
@@ -251,7 +250,7 @@ export const Main_2 = styled.div`
   font-weight: 350;
   color: #333d42;
   text-align: center;
-  
+
   opacity: 0;
   transition: opacity 1s;
 
@@ -266,7 +265,7 @@ export const Main_3 = styled.div`
   font-weight: 350;
   color: #333d42;
   text-align: center;
-  
+
   opacity: 0;
   transition: opacity 1s;
 
@@ -283,7 +282,7 @@ export const StartButtonStyle = styled.button`
   font-weight: 400;
   color: #f9faff;
   border-radius: 15px;
-  border-color : #8ed0f4;
+  border-color: #8ed0f4;
   background-color: #8ed0f4;
   box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
     -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
@@ -300,18 +299,21 @@ const fadeIn = keyframes`
 
 /* quiz 페이지 스타일*/
 export const RegisterButtonStyle = styled.button`
-    margin-top: ${(props) => props.top || "0"};
-    width: 50%;
-    padding: 14px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: #f9faff;
-    border-radius: 15px;
-    border-color : #8ed0f4;
-    background-color: ${(props) => (props.disabled ? '#ccc' : '#8ed0f4')}; /* isFormValid가 false면 회색, true면 기존 색상 */
-    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
-      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  margin-top: ${(props) => props.top || "0"};
+  width: 50%;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color: #8ed0f4;
+  background-color: ${(props) =>
+    props.disabled
+      ? "#ccc"
+      : "#8ed0f4"}; /* isFormValid가 false면 회색, true면 기존 색상 */
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
 `;
 export const Ttitle = styled.div`
   margin-top: 95px;
@@ -326,6 +328,7 @@ export const LText = styled.div`
   font-weight: 350;
   color: #333d42;
 `;
+
 /* MsgRecord 페이지 */
 export const Msgtable = styled.table`
   margin-top: 10px;

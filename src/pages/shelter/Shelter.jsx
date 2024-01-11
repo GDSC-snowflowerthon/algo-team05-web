@@ -16,40 +16,21 @@ import {
 } from "@/styles/styles";
 import ShelterTag from "@/components/shelter/ShelterTag";
 import DetailTag from "@/components/shelter/DetailTag";
+import { shelters } from "@/data/Shelters";
+import { getTranslate } from "@/api/getTranslate";
 
 export default function Shelter() {
   const location = useLocation();
   const [data, setData] = useState(location.state || null);
   // console.log(data); // 지역을 받아옵니다.
 
+  const [title, setTitle] = useState("대피소 검색");
+
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
 
-  const getTranslate = async () => {
-    try {
-      let response = await fetch(`http://3.39.62.158:8080/papago/translate`, {
-        method: "POST",
-        headers: {
-          "X-ACCESS-TOKEN":
-            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXRAbmF2ZXIuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTcwNDkxMjM1MywiZXhwIjoxNzA0OTQ4MzUzfQ.t18T0b-BVDa372kHrGdRgT5WV_3DYist1CLzgqmPjltMn7PIoRSvuILjwkektEOfoAbiwTPdb6LrD7Z1Pt1ssQ",
-        },
-        body: JSON.stringify({
-          prompt: "번역 테스트",
-        }),
-      });
-
-      if (response.ok) {
-        // 여기에서 response.json() 또는 response.text()를 사용하여 데이터를 처리
-        const data = await response.json();
-        console.log(data.prompt);
-      } else {
-        // 오류 응답 처리
-        console.error(`Error: ${response.status} ${response.statusText}`);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const [detailTitle, setDetailTitle] = useState("");
+  const [detailAddress, setDetailAddress] = useState("");
 
   // input 입력 값 변환 함수
   const handleChange = (event) => {
@@ -60,14 +41,37 @@ export default function Shelter() {
     console.log("클릭");
   };
 
+  // 번역 기능
   useEffect(() => {
-    getTranslate();
+    (async () => {
+      try {
+        const newData = await getTranslate(shelters);
+        console.log(newData);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
   }, []);
+
+  // 주어진 배열을 사용하여 ShelterTag를 생성하는 함수
+  const renderShelterTags = () => {
+    return shelters.map((shelter, index) => (
+      <ShelterTag
+        key={index} // React에서는 각 요소에 고유한 키를 제공하는 것이 좋습니다.
+        title={shelter.title}
+        address={shelter.address}
+        setDetailTitle={setDetailTitle}
+        setDetailAddress={setDetailAddress}
+      />
+    ));
+  };
 
   return (
     <Wrapper>
       <FlexRow>
-        <Title top="60px">대피소 검색</Title>
+        <Title top="60px">{title}</Title>
         <Information />
       </FlexRow>
       <SearchBox>
@@ -77,18 +81,18 @@ export default function Shelter() {
         </SearchIconBox>
       </SearchBox>
       <ShelterContent>{data}</ShelterContent>
-      <ListBox>
-        <ShelterTag setOpen={setOpen} />
-        <ShelterTag setOpen={setOpen} />
-        <ShelterTag setOpen={setOpen} />
-        <ShelterTag setOpen={setOpen} />
-        <ShelterTag setOpen={setOpen} />
-        <ShelterTag setOpen={setOpen} />
-        <ShelterTag setOpen={setOpen} />
-      </ListBox>
+      <ListBox>{renderShelterTags()}</ListBox>
       <ScrollIcon />
       <DetailTagBox>
-        {open ? <DetailTag setOpen={setOpen} /> : <></>}
+        {open ? (
+          <DetailTag
+            setOpen={setOpen}
+            title={detailTitle}
+            address={detailAddress}
+          />
+        ) : (
+          <></>
+        )}
       </DetailTagBox>
     </Wrapper>
   );
