@@ -1,21 +1,24 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import { StyledSelect } from "@/components/select/SelectStyle";
 
-export default function GuSelectBar({ data, setGu }) {
+export default function GuSelectBar({ data, setGu, gu }) {
   const options = data;
-  const [selectOnline, setSelectOnline] = useState(options[0]);
-  setGu(selectOnline);
-  console.log("select: ", selectOnline);
-  // setSelectOnline(selectedData);
-  //안에 들어가는 값을 받아야해서 state사용
+  const firstValue =
+    gu && gu.value && gu.label
+      ? { value: gu.value, label: gu.label }
+      : { value: "77", label: "선택" };
+
+  const handleSelectChange = (selectedOption) => {
+    setGu(selectedOption);
+    console.log("select: ", selectedOption);
+  };
 
   return (
     <div>
       <StyledSelect
         options={options} //위에서 만든 배열을 select로 넣기
-        onChange={setSelectOnline} //값이 바뀌면 setState되게
-        defaultValue={selectOnline}
+        onChange={handleSelectChange} //값이 바뀌면 setState되게
+        defaultValue={firstValue}
       />
     </div>
   );
@@ -24,4 +27,5 @@ export default function GuSelectBar({ data, setGu }) {
 GuSelectBar.propTypes = {
   data: PropTypes.array, // or whatever type your 'data' should be
   setGu: PropTypes.func,
+  gu: PropTypes.object,
 };
