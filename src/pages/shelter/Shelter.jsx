@@ -17,7 +17,6 @@ import {
 import ShelterTag from "@/components/shelter/ShelterTag";
 import DetailTag from "@/components/shelter/DetailTag";
 import { shelters } from "@/data/Shelters";
-import { getTranslate } from "@/api/getTranslate";
 import { getShelter } from "@/api/getShelter";
 
 export default function Shelter() {
@@ -69,6 +68,7 @@ export default function Shelter() {
     })();
   };
 
+  /*
   // 번역 기능
   useEffect(() => {
     (async () => {
@@ -82,6 +82,7 @@ export default function Shelter() {
       }
     })();
   }, [shelterList]);
+  */
 
   // 주어진 배열을 사용하여 ShelterTag를 생성하는 함수
   const renderShelterTags = () => {

@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Wrapper, Title, IntroText, ButtonStyle } from "@/styles/styles";
 import styled from "styled-components";
 import B_Map from "@/assets/images/map/beforemap.svg";
 import Tag from "@/components/map/Tag";
 import { areas } from "@/data/Area";
-import { getTranslate } from "@/api/getTranslate";
-import { getShelter } from "@/api/getShelter";
 import Loading from "@/components/loading/Loading";
 
 export default function SelectMap() {
@@ -14,7 +12,6 @@ export default function SelectMap() {
 
   const [area, setArea] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [shelterList, setShelterList] = useState(null);
 
   console.log("선택한 지역은 : ", area);
 
@@ -22,13 +19,13 @@ export default function SelectMap() {
   const handleSubmit = () => {
     setLoading(true);
     setTimeout(() => {
-      console.log(shelterList);
       setLoading(false);
       // Navigate to the next route with both area and shelterList
       navigate(`/shelter-list`, { state: { area } });
     }, 1500);
   };
 
+  /*
   // 번역 기능
   useEffect(() => {
     (async () => {
@@ -42,6 +39,7 @@ export default function SelectMap() {
       }
     })();
   }, []);
+  */
 
   // 자식 컴포넌트 Map으로 함수를 전달하여 자식 컴포넌트의 값을 부모 컴포넌트로 가져온다.
   return (
