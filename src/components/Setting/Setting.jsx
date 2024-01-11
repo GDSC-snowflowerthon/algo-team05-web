@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import SelectBar from "@/components/Setting/SelectBar";
 import { codes } from "@/data/CountryCode";
 import { areas } from "@/data/Area";
+import { getUserInfo } from "@/api/getUserInfo";
+import { setUserInfo } from "@/api/setUserInfo";
 
 export default function Setting({ setIsShow }) {
   const [isOn, setIsOn] = useState(true);
@@ -14,7 +16,31 @@ export default function Setting({ setIsShow }) {
 
   const handleSave = () => {
     setIsShow(false);
+    (async () => {
+      try {
+        const newData = await setUserInfo("경기도", "과천시", "th");
+        console.log(newData);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
   };
+
+  // 유저 정보 바로 받아오기
+  useEffect(() => {
+    (async () => {
+      try {
+        const newData = await getUserInfo();
+        console.log(newData);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
+  }, []);
 
   return (
     <Wrapper>
