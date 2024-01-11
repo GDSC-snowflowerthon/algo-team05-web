@@ -23,6 +23,17 @@ body {
     font-size: 16px;
   }
 
+  table {
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 0.5rem;
+    border: 1px solid black;
+  }
+  
+
 `;
 
 export default GlobalStyle;
