@@ -297,3 +297,32 @@ const fadeIn = keyframes`
     opacity: 1;
   }
 `;
+
+/* quiz 페이지 스타일*/
+export const RegisterButtonStyle = styled.button`
+    margin-top: ${(props) => props.top || "0"};
+    width: 50%;
+    padding: 14px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f9faff;
+    border-radius: 15px;
+    border-color : #8ed0f4;
+    background-color: ${(props) => (props.disabled ? '#ccc' : '#8ed0f4')}; /* isFormValid가 false면 회색, true면 기존 색상 */
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+`;
+export const Ttitle = styled.div`
+  margin-top: 95px;
+  font-size: 25px;
+  font-weight: 350;
+  color: #333d42;
+`;
+
+export const LText = styled.div`
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 350;
+  color: #333d42;
+`;
