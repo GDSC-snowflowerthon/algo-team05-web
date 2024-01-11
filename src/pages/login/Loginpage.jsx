@@ -3,9 +3,10 @@ import {
   InputStyled,
   LText,
   Lttext,
-  StartButtonStyle,
+  ButtonStyle,
   Ttitle,
   Wrapper,
+  TextLeft,
 } from "../../styles/styles";
 import { useNavigate } from "react-router-dom";
 
@@ -33,9 +34,10 @@ export default function LoginPage() {
 
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           localStorage.setItem("accessToken", data.jwtAccessToken);
           //둘 다 저장해야하나요??
-          // localStorage.setItem('refreshToken', data.jwtRefreshToken);
+          localStorage.setItem("language", data.lan);
           // 로그인 성공
           console.log("로그인 성공");
           setErrorMessage(data.message || "로그인 성공");
@@ -78,14 +80,18 @@ export default function LoginPage() {
     <Wrapper>
       <Ttitle>로그인</Ttitle>
       <LText>로그인시 00일동안 데이터가 저장됩니다.</LText>
-      <Lttext style={{ marginTop: "60px" }}>이메일(email)</Lttext>
+      <TextLeft>
+        <Lttext style={{ marginTop: "60px" }}>이메일(email)</Lttext>
+      </TextLeft>
       <InputStyled
         type="email"
         value={email}
         onChange={handleEmailChange}
         placeholder="email"
       ></InputStyled>
-      <Lttext style={{ marginTop: "30px" }}>비밀번호(password)</Lttext>
+      <TextLeft>
+        <Lttext style={{ marginTop: "30px" }}>비밀번호(password)</Lttext>
+      </TextLeft>
       <InputStyled
         type="password"
         value={password}
@@ -95,18 +101,18 @@ export default function LoginPage() {
       <div
         style={{
           position: "absolute",
-          top: "500px",
+          top: "525px",
           opacity: errorMessage ? 1 : 0,
           height: errorMessage ? "auto" : 0,
           overflow: "hidden",
           transition: "opacity 0.5s, height 0.5s",
         }}
       >
-        <p style={{ color: "red" }}>{errorMessage}</p>
+        <p style={{ color: "#ED1B24" }}>{errorMessage}</p>
       </div>
-      <StartButtonStyle style={{ marginTop: "200px" }} onClick={handleSignIn}>
+      <ButtonStyle top="150px" onClick={handleSignIn}>
         로그인(Signin)
-      </StartButtonStyle>
+      </ButtonStyle>
     </Wrapper>
   );
 }

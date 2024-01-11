@@ -1,12 +1,23 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import SelectBar from "@/components/Setting/SelectBar";
 import { codes } from "@/data/CountryCode";
 import { areas } from "@/data/Area";
+import { seoulArea } from "@/data/seoulArea";
+import { getUserInfo } from "@/api/getUserInfo";
+import { setUserInfo } from "@/api/setUserInfo";
+import LanguageSelectBar from "@/components/select/LanguageSelectBar";
+import CitySelectBar from "@/components/select/CitySelectBar";
+import GuSelectBar from "@/components/select/GuSelectBar";
 
 export default function Setting({ setIsShow }) {
   const [isOn, setIsOn] = useState(true);
+  const [data, setData] = useState();
+  const [language, setLanguage] = useState("");
+  const [city, setCity] = useState("");
+  const [gu, setGu] = useState("");
+
+  console.log(data);
 
   const handleOn = () => {
     setIsOn(!isOn);
@@ -14,7 +25,32 @@ export default function Setting({ setIsShow }) {
 
   const handleSave = () => {
     setIsShow(false);
+    (async () => {
+      try {
+        const newData = await setUserInfo(city.label, gu.label, language.label);
+        console.log(newData);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
   };
+
+  // 유저 정보 바로 받아오기
+  useEffect(() => {
+    (async () => {
+      try {
+        const newData = await getUserInfo();
+        console.log(newData);
+        setData(newData);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
+  }, []);
 
   return (
     <Wrapper>
@@ -22,9 +58,11 @@ export default function Setting({ setIsShow }) {
         <Title>설정</Title>
         <ContentBox>
           <Content top="19px">언어(lenguage)</Content>
-          <SelectBar data={codes} />
+          <LanguageSelectBar data={codes} setLanguage={setLanguage} />
           <Content top="11px">지역(area)</Content>
-          <SelectBar data={areas} />
+          <CitySelectBar data={areas} setCity={setCity} />
+          <Content top="11px">구(gu)</Content>
+          <GuSelectBar data={seoulArea} setGu={setGu} />
           <Content top="11px">번역(translate)</Content>
           {isOn ? (
             <OnOffBox onClick={handleOn}>
@@ -79,8 +117,8 @@ export const SettingBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
-  height: 45%;
+  width: 70%;
+  height: 55%;
   border-radius: 20px;
   border: 1px solid #2f88a4;
   background: #f9faff;
@@ -88,7 +126,7 @@ export const SettingBox = styled.div`
 `;
 
 export const ContentBox = styled.div`
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -157,7 +195,7 @@ export const OffBtn = styled.div`
 
 export const ButtonStyle = styled.button`
   margin-top: ${(props) => props.top || "0"};
-  width: 55%;
+  width: 60%;
   padding: 10px;
   text-align: center;
   font-size: 12px;

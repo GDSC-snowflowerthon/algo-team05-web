@@ -1,11 +1,13 @@
-import styled from "styled-components";
 import { useState } from "react";
-import Select from "react-select";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+import Select from "react-select";
 
-export default function SelectBar({ data }) {
+export default function OriginSelect({ data, setCity }) {
   const options = data;
   const [selectOnline, setSelectOnline] = useState(options[0]);
+  setCity(selectOnline);
+  //  setSelectOnline(selectedData);
   //안에 들어가는 값을 받아야해서 state사용
 
   return (
@@ -19,7 +21,12 @@ export default function SelectBar({ data }) {
   );
 }
 
-const StyledSelect = styled(Select).attrs({
+OriginSelect.propTypes = {
+  data: PropTypes.array, // or whatever type your 'data' should be
+  setCity: PropTypes.func,
+};
+
+export const StyledSelect = styled(Select).attrs({
   classNamePrefix: "react-select",
 })`
   .react-select__control {
@@ -88,7 +95,3 @@ const StyledSelect = styled(Select).attrs({
     color: #50a1df;
   }
 `;
-
-SelectBar.propTypes = {
-  data: PropTypes.array, // or whatever type your 'data' should be
-};
