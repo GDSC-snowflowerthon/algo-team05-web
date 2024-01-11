@@ -352,6 +352,44 @@ export const LText = styled.div`
   font-weight: 400;
 `;
 
+export const QuizButtonStyle = styled.button`
+    margin-top: ${(props) => props.top || "0"};
+    width: 30%;
+    height: 10%;
+    position: absolute;
+    bottom : 15%;
+    padding: 14px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #f9faff;
+    border-radius: 15px;
+    border-color : #8ed0f4;
+    background-color: ${(props) => (props.disabled ? '#ccc' : '#8ed0f4')}; /* isFormValid가 false면 회색, true면 기존 색상 */
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+`;
+
+export const QuizStyle = styled.div`
+    margin-top: ${(props) => props.top || "0"};
+    width: 65%;
+    height: 40%;
+    position: absolute;
+    top: 150px;
+    bottom: auto;
+    padding: 14px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #333D42;
+    border-radius: 15px;
+    border-color: #FFFFFF;
+    background-color: #FFFFF;
+    /* isFormValid가 false면 회색, true면 기존 색상 */
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+`;
+
 /* Home 화면 스타일 */
 export const HomeButtonStyle = styled.button`
   margin-top: 20px;
