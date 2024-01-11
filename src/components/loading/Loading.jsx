@@ -18,9 +18,9 @@ const Wrapper = styled.div`
 const LoadingContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 55%;
+  margin-top: 75%;
   align-items: center;
-  color: #3e4958;
+  color: #f9faff;
   font-size: 15px;
   font-weight: 400;
   pointer-events: none;
