@@ -91,7 +91,7 @@ export default function Shelter() {
       <SearchBox>
         <SearchInput type="text" value={text} onChange={handleChange} />
         <SearchIconBox>
-          <SearchIcon onClick={() => handleSearch(1147000000)} />
+          <SearchIcon onClick={() => handleSearch("1147000000")} />
         </SearchIconBox>
       </SearchBox>
       <ShelterContent>{data}</ShelterContent>

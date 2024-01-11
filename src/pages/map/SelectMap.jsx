@@ -6,17 +6,37 @@ import B_Map from "@/assets/images/map/beforemap.svg";
 import Tag from "@/components/map/Tag";
 import { areas } from "@/data/Area";
 import { getTranslate } from "@/api/getTranslate";
+import { getShelter } from "@/api/getShelter";
+import Loading from "@/components/loading/Loading";
 
 export default function SelectMap() {
   const navigate = useNavigate();
 
   const [area, setArea] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [shelterList, setShelterList] = useState(null);
 
   console.log("선택한 지역은 : ", area);
 
   // 데이터 전송 함수
   const handleSubmit = () => {
-    navigate(`/shelter-list`, { state: area });
+    setLoading(true);
+    (async () => {
+      try {
+        setShelterList(await getShelter(1147000000));
+        console.log("대피소 데이터를 받아왔습니다");
+
+        setTimeout(() => {
+          setLoading(false);
+          // Navigate to the next route with both area and shelterList
+          navigate(`/shelter-list`, { state: { area, shelterList } });
+        }, 1000);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
   };
 
   // 번역 기능
@@ -242,6 +262,7 @@ export default function SelectMap() {
           선택 완료
         </ButtonStyle>
       )}
+      {loading && <Loading />}
     </Wrapper>
   );
 }
