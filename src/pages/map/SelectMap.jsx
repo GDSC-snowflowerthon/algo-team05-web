@@ -21,22 +21,12 @@ export default function SelectMap() {
   // 데이터 전송 함수
   const handleSubmit = () => {
     setLoading(true);
-    (async () => {
-      try {
-        setShelterList(await getShelter(1147000000));
-        console.log("대피소 데이터를 받아왔습니다");
-
-        setTimeout(() => {
-          setLoading(false);
-          // Navigate to the next route with both area and shelterList
-          navigate(`/shelter-list`, { state: { area, shelterList } });
-        }, 1000);
-        // Do something with the translationData
-      } catch (error) {
-        // Handle errors
-        console.error("Error:", error);
-      }
-    })();
+    setTimeout(() => {
+      console.log(shelterList);
+      setLoading(false);
+      // Navigate to the next route with both area and shelterList
+      navigate(`/shelter-list`, { state: { area } });
+    }, 1500);
   };
 
   // 번역 기능
