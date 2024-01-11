@@ -12,6 +12,7 @@ import {
 } from "@/styles/styles";
 import MapDetailTag from "@/components/click-content/MapDetailTag";
 import ActionDetailTag from "@/components/click-content/ActionDetailTag";
+import { getTranslate } from "@/api/getTranslate";
 
 export default function ClickContent() {
   const [openLocate, setOpenLocate] = useState(false);
@@ -39,6 +40,20 @@ export default function ClickContent() {
       console.error("Error fetching data:", error);
     }
   };
+
+  // 번역 기능
+  useEffect(() => {
+    (async () => {
+      try {
+        const newData = await getTranslate();
+        console.log(newData);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
+  }, []);
 
   const handleLocation = () => {
     setOpenAction(false);
