@@ -19,6 +19,8 @@ import { getShelter } from "@/api/getShelter";
 import { getAllShelter } from "@/api/getAllShelter";
 import { seoulArea } from "@/data/SeoulArea";
 import { shelterSelectCodes } from "@/data/ShelterSelectCode";
+import { papagoData } from "@/data/PapagoData";
+import Navigation from "@/components/Navigation";
 
 export default function Shelter() {
   const cookie = localStorage.getItem("accessToken");
@@ -37,10 +39,47 @@ export default function Shelter() {
 
   const [shelterList, setShelterList] = useState(shelters);
 
-  // input 입력 값 변환 함수
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
+  const [lan, setLan] = useState("");
+  const [user, setUser] = useState(false);
+
+  // 프론트 더미 번역
+  useEffect(() => {
+    const language = localStorage.getItem("language");
+    console.log(language);
+    setLan(language);
+  }, [user]);
+
+  useEffect(() => {
+    if (lan === "ko") {
+      setTitle(papagoData.ko.대피소검색[0]);
+    } else if (lan === "en") {
+      setTitle(papagoData.en.대피소검색[0]);
+    } else if (lan === "ja") {
+      setTitle(papagoData.ja.대피소검색[0]);
+    } else if (lan === "zh-CN") {
+      setTitle(papagoData.zhCN.대피소검색[0]);
+    } else if (lan === "zh-TW") {
+      setTitle(papagoData.zhTW.대피소검색[0]);
+    } else if (lan === "vi") {
+      setTitle(papagoData.vi.대피소검색[0]);
+    } else if (lan === "id") {
+      setTitle(papagoData.id.대피소검색[0]);
+    } else if (lan === "th") {
+      setTitle(papagoData.th.대피소검색[0]);
+    } else if (lan === "de") {
+      setTitle(papagoData.de.대피소검색[0]);
+    } else if (lan === "ru") {
+      setTitle(papagoData.ru.대피소검색[0]);
+    } else if (lan === "es") {
+      setTitle(papagoData.es.대피소검색[0]);
+    } else if (lan === "it") {
+      setTitle(papagoData.it.대피소검색[0]);
+    } else if (lan === "fr") {
+      setTitle(papagoData.fr.대피소검색[0]);
+    } else {
+      setTitle(papagoData.en.대피소검색[0]);
+    }
+  }, [lan]);
 
   useEffect(() => {
     (async () => {
@@ -110,6 +149,7 @@ export default function Shelter() {
 
   return (
     <Wrapper>
+      <Navigation setUser={setUser} user={user} />
       <FlexRow>
         <Title top="60px">{title}</Title>
         <Information />

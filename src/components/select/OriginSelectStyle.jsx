@@ -42,18 +42,18 @@ export const OriginStyledSelect = styled(Select).attrs({
   }
   .react-select__option {
     background-color: transparent; /* option 배경색 */
-    color: #50a1df; /* option 텍스트 색상 */
+    color: #333d42; /* option 텍스트 색상 */
   }
   .react-select__option--is-selected {
-    background-color: #50a1df; /* 클릭된 option 배경색 */
-    color: #8ed0f4; /* 클릭된 option 텍스트 색상 */
+    background-color: #F9FAFF /* 클릭된 option 배경색 */
+    color: #333d42; /* 클릭된 option 텍스트 색상 */
   }
   .react-select__option--is-focused {
     border: 1px solid #50a1df;
-    color: #f9faff; /* hover 상태의 option 텍스트 색상 */
+    color: #333d42; /* hover 상태의 option 텍스트 색상 */
   }
   .react-select__placeholder {
-    color: #f9faff;
+    color: #333d42;
     font-weight: 600;
   }
   .react-select__indicator-separator {
@@ -61,7 +61,7 @@ export const OriginStyledSelect = styled(Select).attrs({
   }
 
   .react-select__indicator {
-    color: #50a1df;
+    color: #333d42;
   }
   .react-select__indicator--is-focused {
     color: #50a1df;

@@ -43,9 +43,9 @@ export default function LoginPage() {
           // console.log(data);
           localStorage.setItem("accessToken", data.jwtAccessToken);
           //둘 다 저장해야하나요??
-          localStorage.setItem("language", data.lan);
+          localStorage.setItem("language", data.language);
           // 로그인 성공
-          console.log("로그인 성공");
+          console.log("로그인 성공 : ", data);
           setErrorMessage(data.message || "로그인 성공");
           setTimeout(() => {
             navigate("/home");

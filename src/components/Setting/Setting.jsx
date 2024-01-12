@@ -9,8 +9,9 @@ import { setUserInfo } from "@/api/setUserInfo";
 import LanguageSelectBar from "@/components/select/LanguageSelectBar";
 import CitySelectBar from "@/components/select/CitySelectBar";
 import GuSelectBar from "@/components/select/GuSelectBar";
+import { papagoData } from "../../data/PapagoData";
 
-export default function Setting({ setIsShow }) {
+export default function Setting({ setIsShow, setUser, user }) {
   const cookie = localStorage.getItem("accessToken");
   const cookie_ = localStorage.getItem("language");
 
@@ -19,6 +20,13 @@ export default function Setting({ setIsShow }) {
   const [language, setLanguage] = useState();
   const [city, setCity] = useState();
   const [gu, setGu] = useState();
+
+  const [set, setSet] = useState("설정");
+  const [save, setSave] = useState("저장");
+  const [can, setCan] = useState("취소");
+
+  const [lan, setLan] = useState("");
+
   const [area, setArea] = useState([
     { value: "99", label: "" },
     { value: "0", label: "강남구" },
@@ -44,6 +52,72 @@ export default function Setting({ setIsShow }) {
     { value: "20", label: "중구" },
     { value: "21", label: "중량구" },
   ]);
+
+  useEffect(() => {
+    const language = localStorage.getItem("language");
+    console.log(language);
+    setLan(language);
+  }, [user]);
+
+  useEffect(() => {
+    if (lan === "ko") {
+      setSet(papagoData.ko.설정[0]);
+      setSave(papagoData.ko.저장[0]);
+      setCan(papagoData.ko.취소[0]);
+    } else if (lan === "en") {
+      setSet(papagoData.en.설정[0]);
+      setSave(papagoData.en.저장[0]);
+      setCan(papagoData.en.취소[0]);
+    } else if (lan === "ja") {
+      setSet(papagoData.ja.설정[0]);
+      setSave(papagoData.ja.저장[0]);
+      setCan(papagoData.ja.취소[0]);
+    } else if (lan === "zh-CN") {
+      setSet(papagoData.ja.설정[0]);
+      setSave(papagoData.ja.저장[0]);
+      setCan(papagoData.ja.취소[0]);
+    } else if (lan === "zh-TW") {
+      setSet(papagoData.zhCN.설정[0]);
+      setSave(papagoData.zhCN.저장[0]);
+      setCan(papagoData.zhCN.취소[0]);
+    } else if (lan === "vi") {
+      setSet(papagoData.vi.설정[0]);
+      setSave(papagoData.vi.저장[0]);
+      setCan(papagoData.vi.취소[0]);
+    } else if (lan === "id") {
+      setSet(papagoData.id.설정[0]);
+      setSave(papagoData.id.저장[0]);
+      setCan(papagoData.id.취소[0]);
+    } else if (lan === "th") {
+      setSet(papagoData.th.설정[0]);
+      setSave(papagoData.th.저장[0]);
+      setCan(papagoData.th.취소[0]);
+    } else if (lan === "de") {
+      setSet(papagoData.de.설정[0]);
+      setSave(papagoData.de.저장[0]);
+      setCan(papagoData.de.취소[0]);
+    } else if (lan === "ru") {
+      setSet(papagoData.ru.설정[0]);
+      setSave(papagoData.ru.저장[0]);
+      setCan(papagoData.ru.취소[0]);
+    } else if (lan === "es") {
+      setSet(papagoData.es.설정[0]);
+      setSave(papagoData.es.저장[0]);
+      setCan(papagoData.es.취소[0]);
+    } else if (lan === "it") {
+      setSet(papagoData.it.설정[0]);
+      setSave(papagoData.it.저장[0]);
+      setCan(papagoData.it.취소[0]);
+    } else if (lan === "fr") {
+      setSet(papagoData.fr.설정[0]);
+      setSave(papagoData.fr.저장[0]);
+      setCan(papagoData.fr.취소[0]);
+    } else {
+      setSet(papagoData.en.설정[0]);
+      setSave(papagoData.en.저장[0]);
+      setCan(papagoData.en.취소[0]);
+    }
+  }, [lan]);
 
   // console.log(city);
   // console.log(language);
@@ -92,10 +166,12 @@ export default function Setting({ setIsShow }) {
 
   const handleSave = () => {
     if (isFormValid) {
-      setIsShow(false);
       (async () => {
         try {
           localStorage.setItem("language", language.value);
+          setUser(!user);
+          console.log(user);
+          setIsShow(false);
           const newData = await setUserInfo(
             city.value,
             gu.value,
@@ -195,7 +271,7 @@ export default function Setting({ setIsShow }) {
   return (
     <Wrapper>
       <SettingBox>
-        <Title>설정</Title>
+        <Title>{set}</Title>
         <ContentBox>
           <Content top="19px">언어(language)</Content>
           <LanguageSelectBar
@@ -210,10 +286,10 @@ export default function Setting({ setIsShow }) {
         </ContentBox>
         <FlexRow>
           <ButtonStyle top="57px" onClick={handleCancel}>
-            취소
+            {can}
           </ButtonStyle>
           <ButtonStyle top="57px" onClick={handleSave}>
-            저장
+            {save}
           </ButtonStyle>
         </FlexRow>
       </SettingBox>
@@ -225,6 +301,8 @@ export default function Setting({ setIsShow }) {
  isRequired : 필수 prop임을 의미한다. */
 Setting.propTypes = {
   setIsShow: PropTypes.func.isRequired,
+  setUser: PropTypes.func,
+  user: PropTypes.bool,
 };
 
 export const Wrapper = styled.div`

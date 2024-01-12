@@ -1,40 +1,83 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import LocationImoge from "@/assets/images/shelter/location.svg";
 import CallImoge from "@/assets/images/shelter/call.svg";
 import Map from "@/components/map/Map";
+import PropTypes from "prop-types";
+import { papagoData } from "@/data/PapagoData";
 
-export default function MapDetailTag() {
+export default function MapDetailTag({ location, user }) {
+  const [show, setShow] = useState("이 지역 대피소 보러가기기");
+  const [lan, setLan] = useState("");
+
+  useEffect(() => {
+    const language = localStorage.getItem("language");
+    console.log(language);
+    setLan(language);
+  }, [user]);
+
+  useEffect(() => {
+    if (lan === "ko") {
+      setShow(papagoData.ko.알아보기[0]);
+    } else if (lan === "en") {
+      setShow(papagoData.en.알아보기[0]);
+    } else if (lan === "ja") {
+      setShow(papagoData.ja.알아보기[0]);
+    } else if (lan === "zh-CN") {
+      setShow(papagoData.zhCN.알아보기[0]);
+    } else if (lan === "zh-TW") {
+      setShow(papagoData.zhTW.알아보기[0]);
+    } else if (lan === "vi") {
+      setShow(papagoData.vi.알아보기[0]);
+    } else if (lan === "id") {
+      setShow(papagoData.id.알아보기[0]);
+    } else if (lan === "th") {
+      setShow(papagoData.th.알아보기[0]);
+    } else if (lan === "de") {
+      setShow(papagoData.de.알아보기[0]);
+    } else if (lan === "ru") {
+      setShow(papagoData.ru.알아보기[0]);
+    } else if (lan === "es") {
+      setShow(papagoData.es.알아보기[0]);
+    } else if (lan === "it") {
+      setShow(papagoData.it.알아보기[0]);
+    } else if (lan === "fr") {
+      setShow(papagoData.fr.알아보기[0]);
+    } else {
+      setShow(papagoData.en.알아보기[0]);
+    }
+  }, [lan]);
+
   const onMoreInfoClick = () => {
-    window.open(`https://map.kakao.com/link/search/제주시 명월성로 5`);
+    window.open(`https://map.kakao.com/link/search/${location}`);
   };
 
   return (
     <>
       <Map />
       <TagBox>
-        <Title>노을 공원</Title>
-        <FlexRow bottom="10px">
-          <Location />
-          <Content>서울특별시 강서구 화곡동 105-194</Content>
-        </FlexRow>
-        <FlexRow>
-          <Call />
-          <Content>010-0000-0000</Content>
-        </FlexRow>
-        <MoreLearn onClick={onMoreInfoClick}>더 알아보기</MoreLearn>
+        <Title>{location}</Title>
+        <MoreLearn onClick={onMoreInfoClick}>{show}</MoreLearn>
       </TagBox>
     </>
   );
 }
 
+MapDetailTag.propTypes = {
+  location: PropTypes.string,
+  user: PropTypes.bool,
+};
+
 export const TagBox = styled.div`
   position: relative;
   display: flex;
+  width: 65%;
   flex-direction: column;
   padding: 20px 32px 30px 32px;
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+  align-items: center;
 `;
 
 export const FlexRow = styled.div`
@@ -85,17 +128,15 @@ export const Call = styled.div`
 `;
 
 export const MoreLearn = styled.div`
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
   color: #f9faff;
+  margin-top: 10px;
+  max-width: 80%;
   text-align: center;
   font-size: 12px;
   font-weight: 700;
   line-height: normal;
-  border-radius: 38.031px;
+  border-radius: 38px;
   background: #2f88a4;
-  padding: 10px;
-  max-width: 30%;
+  padding: 15px 20px 15px 20px;
   cursor: pointer;
 `;

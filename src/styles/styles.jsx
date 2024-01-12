@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
 export const ButtonStyle = styled.button`
   margin-top: ${(props) => props.top || "0"};
   margin-bottom: ${(props) => props.bottom || "0"};
-  width: 50%;
+  width: 60%;
   padding: 14px;
   text-align: center;
   font-size: 18px;
@@ -68,7 +68,7 @@ export const ButtonStyle = styled.button`
 export const HomeButtonStyle = styled.button`
   margin-top: ${(props) => props.top || "0"};
   margin-bottom: ${(props) => props.bottom || "0"};
-  width: 50%;
+  width: 60%;
   padding: 14px;
   text-align: center;
   font-size: 18px;
@@ -81,7 +81,7 @@ export const HomeButtonStyle = styled.button`
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
   cursor: pointer;
   font-famiy: "Chakra petch";
-  animation: ${FadeIn} 3s ease-in-out;
+  animation: ${FadeIn} 2s ease-in-out;
 `;
 
 export const TextLeft = styled.div`
@@ -110,6 +110,15 @@ export const ErrorBox = styled.div`
 */
 
 /* ClickContent 페이지 */
+
+export const TitleBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  height: auto;
+`;
+
 export const Title = styled.div`
   margin-top: ${(props) => props.top || "95px"};
   font-size: 25px;
@@ -342,7 +351,7 @@ export const ServiceTitle = styled.div`
   font-size: 30px;
   font-weight: 700;
   letter-spacing: -0.312px;
-  animation: ${slideOn} 0.8s ease-in-out 0.1s;
+  animation: ${slideOn} 0.8s ease-in-out;
   pointer-events: none;
 `;
 
@@ -354,7 +363,7 @@ export const ServiceContent = styled.div`
   font-size: 15px;
   font-weight: 400;
   letter-spacing: -0.312px;
-  animation: ${slideOn} 0.8s ease-in-out 0.1s;
+  animation: ${slideOn} 0.8s ease-in-out;
   pointer-events: none;
 `;
 
@@ -366,7 +375,7 @@ export const ServiceInform = styled.div`
   font-size: 15px;
   font-weight: 400;
   letter-spacing: -0.312px;
-  animation: ${slideOn} 0.8s ease-in-out 0.1s;
+  animation: ${slideOn} 0.8s ease-in-out;
   pointer-events: none;
 `;
 /* quiz 페이지 스타일*/

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "@/pages/home/Home";
 import TestPage from "@/pages/test/TestPage";
@@ -17,7 +16,6 @@ import NotFound from "@/components/Error/NotFound.jsx";
 function App() {
   return (
     <>
-      <Navigation />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/test" element={<TestPage />} />

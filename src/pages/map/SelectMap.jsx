@@ -7,6 +7,8 @@ import Tag from "@/components/map/Tag";
 import { areas } from "@/data/Area";
 import Loading from "@/components/loading/Loading";
 import { map_color } from "@/data/mapColor";
+import Navigation from "@/components/Navigation";
+import { papagoData } from "@/data/PapagoData";
 
 export default function SelectMap() {
   const navigate = useNavigate();
@@ -16,6 +18,11 @@ export default function SelectMap() {
   const [color, setColor] = useState("#F7F0D4");
   // 선택 확인용 state
   const [selectedTag, setSelectedTag] = useState(null);
+  const [lan, setLan] = useState("");
+  const [user, setUser] = useState(false);
+
+  const [ok, setOk] = useState("선택 완료");
+  const [selec, setSelec] = useState("지역을 선택해주세요.");
 
   console.log("선택한 지역은 : ", area);
 
@@ -28,6 +35,59 @@ export default function SelectMap() {
       navigate(`/shelter-list`, { state: { area } });
     }, 1500);
   };
+
+  // 프론트 더미 번역
+  useEffect(() => {
+    const language = localStorage.getItem("language");
+    console.log(language);
+    setLan(language);
+  }, [user]);
+
+  useEffect(() => {
+    if (lan === "ko") {
+      setOk(papagoData.ko.선택완료[0]);
+      setSelec(papagoData.ko.지역선택[0]);
+    } else if (lan === "en") {
+      setOk(papagoData.en.선택완료[0]);
+      setSelec(papagoData.en.지역선택[0]);
+    } else if (lan === "ja") {
+      setOk(papagoData.ja.선택완료[0]);
+      setSelec(papagoData.ja.지역선택[0]);
+    } else if (lan === "zh-CN") {
+      setOk(papagoData.zhCN.선택완료[0]);
+      setSelec(papagoData.zhCN.지역선택[0]);
+    } else if (lan === "zh-TW") {
+      setOk(papagoData.zhTW.선택완료[0]);
+      setSelec(papagoData.zhTW.지역선택[0]);
+    } else if (lan === "vi") {
+      setOk(papagoData.vi.선택완료[0]);
+      setSelec(papagoData.vi.지역선택[0]);
+    } else if (lan === "id") {
+      setOk(papagoData.id.선택완료[0]);
+      setSelec(papagoData.id.지역선택[0]);
+    } else if (lan === "th") {
+      setOk(papagoData.th.선택완료[0]);
+      setSelec(papagoData.th.지역선택[0]);
+    } else if (lan === "de") {
+      setOk(papagoData.de.선택완료[0]);
+      setSelec(papagoData.de.지역선택[0]);
+    } else if (lan === "ru") {
+      setOk(papagoData.ru.선택완료[0]);
+      setSelec(papagoData.ru.지역선택[0]);
+    } else if (lan === "es") {
+      setOk(papagoData.es.선택완료[0]);
+      setSelec(papagoData.es.지역선택[0]);
+    } else if (lan === "it") {
+      setOk(papagoData.it.선택완료[0]);
+      setSelec(papagoData.it.지역선택[0]);
+    } else if (lan === "fr") {
+      setOk(papagoData.fr.선택완료[0]);
+      setSelec(papagoData.fr.지역선택[0]);
+    } else {
+      setOk(papagoData.en.선택완료[0]);
+      setSelec(papagoData.en.지역선택[0]);
+    }
+  }, [lan]);
 
   /*
   // 번역 기능
@@ -88,6 +148,7 @@ export default function SelectMap() {
   // 자식 컴포넌트 Map으로 함수를 전달하여 자식 컴포넌트의 값을 부모 컴포넌트로 가져온다.
   return (
     <Wrapper>
+      <Navigation setUser={setUser} user={user} />
       <Title top="60px">대한민국</Title>
       <BeforeMap>
         <Tag
@@ -296,7 +357,7 @@ export default function SelectMap() {
           {areas[17].label}
         </Tag>
       </BeforeMap>
-      <IntroText>{!area ? "지역을 선택해주세요." : area}</IntroText>
+      <IntroText>{!area ? selec : area}</IntroText>
       {!area ? (
         <ButtonStyle
           top="14px"
@@ -304,11 +365,11 @@ export default function SelectMap() {
           color="rgba(141, 166, 187, 0.3)"
           bg="#e7edf2"
         >
-          선택 완료
+          {ok}
         </ButtonStyle>
       ) : (
         <ButtonStyle top="14px" onClick={handleSubmit}>
-          선택 완료
+          {ok}
         </ButtonStyle>
       )}
       {loading && <Loading />}

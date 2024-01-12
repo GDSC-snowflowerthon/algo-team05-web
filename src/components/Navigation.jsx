@@ -4,6 +4,7 @@ import PlayStation from "@/assets/images/Navigation/Playstation.svg";
 import SetImoge from "@/assets/images/Navigation/Setting.svg";
 import Setting from "@/components/Setting/Setting";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -47,7 +48,7 @@ export const SettingBtn = styled.div`
   margin-top: 30px;
 `;
 
-export default function Navigation() {
+export default function Navigation({ setUser, user }) {
   const [isShow, setIsShow] = useState(false);
   const navigate = useNavigate();
 
@@ -65,7 +66,16 @@ export default function Navigation() {
         <HomeBtn onClick={handleNavigate} />
         <SettingBtn onClick={handleSetting} />
       </NavigationBar>
-      {isShow ? <Setting setIsShow={setIsShow} /> : <></>}
+      {isShow ? (
+        <Setting setIsShow={setIsShow} setUser={setUser} user={user} />
+      ) : (
+        <></>
+      )}
     </Wrapper>
   );
 }
+
+Navigation.propTypes = {
+  setUser: PropTypes.func,
+  user: PropTypes.bool,
+};

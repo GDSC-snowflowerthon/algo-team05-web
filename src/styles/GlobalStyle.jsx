@@ -2,10 +2,17 @@ import { createGlobalStyle } from "styled-components";
 // 필요한 전역 스타일 작성해주세요.
 const GlobalStyle = createGlobalStyle`
 
+*{
+  font-family: 'Chakra petch';
+ }
+
 @font-face {
   font-family: "Chakra petch";
   font-style: normal;
-  font-weight: 100;
+  font-weight: 200;
+  font-display: fallback;
+  src:
+  local('ChakraPetch'), 
   src: url("@/assets/fonts/ChakraPetch-Light.ttf") format("ttf");
 }
 
