@@ -407,23 +407,24 @@ export const QuizButtonStyle = styled.button`
 `;
 
 export const QuizStyle = styled.div`
-  margin-top: ${(props) => props.top || "0"};
-  width: 65%;
-  height: 40%;
-  position: absolute;
-  top: 150px;
-  bottom: auto;
-  padding: 14px;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 500;
-  color: #333d42;
-  border-radius: 15px;
-  border-color: #ffffff;
-  background-color: #FFFFF;
-  /* isFormValid가 false면 회색, true면 기존 색상 */
-  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
-    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    margin-top: ${(props) => props.top || "0"};
+    width: 65%;
+    height: 40%;
+    position: absolute;
+    top: 150px;
+    bottom: auto;
+    padding: 14px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #333D42;
+    border-radius: 15px;
+    border-color: #FFFFFF;
+    background-color: #FFFFF;
+    /* isFormValid가 false면 회색, true면 기존 색상 */
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
 `;
 
 /* Home 화면 스타일 */
@@ -554,6 +555,26 @@ export const TableBox = styled.div`
   -ms-overflow-style: none;
 `;
 
+export const ModalStyle = styled.div`
+    z-index: 500;
+    width: 65%;
+    height: 53%;
+    position: absolute;
+    top: 150px;
+    bottom: auto;
+    padding: 14px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #333D42;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+    display: ${(props) => (props.isopen ? "flex" : "none") };
+    flex-direction: column;
+`;
+
 export const QuizAnswerStyle = styled.button`
     width: 70%;
     height: 8%;
@@ -571,22 +592,3 @@ export const QuizAnswerStyle = styled.button`
       -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
 `;
 
-export const ModalStyle = styled.div`
-    z-index: 500;
-    width: 65%;
-    height: 50%;
-    position: absolute;
-    top: 150px;
-    bottom: auto;
-    padding: 14px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
-    color: #333D42;
-    border-radius: 15px;
-    background-color: #fff;
-    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
-      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
-    display: ${(props) => (props.$isopen ? "flex" : "none") };
-    flex-direction: column;
-`;
