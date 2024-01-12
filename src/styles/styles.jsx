@@ -213,6 +213,38 @@ export const ListBox = styled.div`
   -ms-overflow-style: none;
 `;
 
+export const ShelterButtonStyle = styled.div`
+  max-width: 50px;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f9faff;
+  border-radius: 20px;
+  background-color: #2f88a4;
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-famiy: "Chakra petch";
+`;
+
+export const ShelterTagBox = styled.div`
+  margin-top: 20px;
+  width: 78%;
+  padding: 10px;
+  height: 80px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0; /* 숨김 */
+  }
+  /* Firefox */
+  scrollbar-width: none; /* Firefox 64+ */
+  -ms-overflow-style: none;
+`;
+
 /*
 export const ListShadow = styled.div`
   position: absolute;

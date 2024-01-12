@@ -14,8 +14,8 @@ export default function Setting({ setIsShow }) {
   const cookie = localStorage.getItem("accessToken");
   const cookie_ = localStorage.getItem("language");
 
-  const [isOn, setIsOn] = useState(true);
-  const [data, setData] = useState();
+  // const [isOn, setIsOn] = useState(true);
+  // const [data, setData] = useState();
   const [language, setLanguage] = useState();
   const [city, setCity] = useState();
   const [gu, setGu] = useState();
@@ -114,6 +114,12 @@ export default function Setting({ setIsShow }) {
     }
   };
 
+  const handleCancel = () => {
+    setIsShow(false);
+  };
+
+  // onoff용 통신 이벤트
+  /*
   const handleOnOff = () => {
     if (isFormValid) {
       console.log("lang: ", language);
@@ -132,6 +138,7 @@ export default function Setting({ setIsShow }) {
       alert("설정을 입력 해주세요.");
     }
   };
+  */
 
   const findAreaByValue = (value, data) => {
     const selectedArea = data.find((item) => item.value === value);
@@ -144,7 +151,7 @@ export default function Setting({ setIsShow }) {
       try {
         const newData = await getUserInfo(cookie);
         console.log(newData);
-        setData(newData);
+        // setData(newData);
 
         localStorage.setItem("language", newData.language);
 
@@ -161,6 +168,8 @@ export default function Setting({ setIsShow }) {
     })();
   }, []);
 
+  // onoff용 클릭 이벤트
+  /*
   // 왜 안돼..
   const handleOn = () => {
     // 번역 X에서 번역 중으로 이동 시 기존 언어로 변경
@@ -181,6 +190,7 @@ export default function Setting({ setIsShow }) {
     setLanguage(codes[1]);
     handleOnOff();
   };
+  */
 
   return (
     <Wrapper>
@@ -197,30 +207,15 @@ export default function Setting({ setIsShow }) {
           <CitySelectBar data={areas} setCity={setCity} city={city} />
           <Content top="11px">구(gu)</Content>
           <GuSelectBar data={area} setGu={setGu} gu={gu} />
-          <Content top="11px">번역(translate)</Content>
-          {isOn ? (
-            <OnOffBox onClick={handleOff}>
-              <OnBtn>On</OnBtn>
-              <OffBtn>Off</OffBtn>
-            </OnOffBox>
-          ) : (
-            <OnOffBox onClick={handleOn}>
-              <OnBtn bg="transparent" shadow="none" color="#f9faff">
-                On
-              </OnBtn>
-              <OffBtn
-                bg="#F9FAFF"
-                shadow="0px 0px 7px 0px rgba(0, 0, 0, 0.25)"
-                color="#333d42"
-              >
-                Off
-              </OffBtn>
-            </OnOffBox>
-          )}
         </ContentBox>
-        <ButtonStyle top="27px" onClick={handleSave}>
-          저장
-        </ButtonStyle>
+        <FlexRow>
+          <ButtonStyle top="57px" onClick={handleCancel}>
+            취소
+          </ButtonStyle>
+          <ButtonStyle top="57px" onClick={handleSave}>
+            저장
+          </ButtonStyle>
+        </FlexRow>
       </SettingBox>
     </Wrapper>
   );
@@ -252,7 +247,7 @@ export const SettingBox = styled.div`
   flex-direction: column;
   align-items: center;
   width: 70%;
-  height: 55%;
+  height: 50%;
   border-radius: 20px;
   border: 1px solid #2f88a4;
   background: #f9faff;
@@ -260,7 +255,7 @@ export const SettingBox = styled.div`
 `;
 
 export const ContentBox = styled.div`
-  width: 85%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -329,8 +324,9 @@ export const OffBtn = styled.div`
 
 export const ButtonStyle = styled.button`
   margin-top: ${(props) => props.top || "0"};
-  width: 60%;
-  padding: 10px;
+  width: 100px;
+  max-width: 100%;
+  padding: 14px;
   text-align: center;
   font-size: 12px;
   font-weight: 700;
@@ -340,4 +336,10 @@ export const ButtonStyle = styled.button`
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
   cursor: pointer;
+`;
+
+export const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 `;
