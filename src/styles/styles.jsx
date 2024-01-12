@@ -40,6 +40,7 @@ export const ButtonStyle = styled.button`
   box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
   cursor: pointer;
+  font-famiy: "Chakra petch";
 `;
 
 export const TextLeft = styled.div`
@@ -212,6 +213,38 @@ export const ListBox = styled.div`
   -ms-overflow-style: none;
 `;
 
+export const ShelterButtonStyle = styled.div`
+  max-width: 50px;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f9faff;
+  border-radius: 20px;
+  background-color: #2f88a4;
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-famiy: "Chakra petch";
+`;
+
+export const ShelterTagBox = styled.div`
+  margin-top: 20px;
+  width: 78%;
+  padding: 10px;
+  height: 80px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0; /* 숨김 */
+  }
+  /* Firefox */
+  scrollbar-width: none; /* Firefox 64+ */
+  -ms-overflow-style: none;
+`;
+
 /*
 export const ListShadow = styled.div`
   position: absolute;
@@ -353,41 +386,44 @@ export const LText = styled.div`
 `;
 
 export const QuizButtonStyle = styled.button`
-    margin-top: ${(props) => props.top || "0"};
-    width: 30%;
-    height: 10%;
-    position: absolute;
-    bottom : 15%;
-    padding: 14px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
-    color: #f9faff;
-    border-radius: 15px;
-    border-color : #8ed0f4;
-    background-color: ${(props) => (props.disabled ? '#ccc' : '#8ed0f4')}; /* isFormValid가 false면 회색, true면 기존 색상 */
-    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
-      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  margin-top: ${(props) => props.top || "0"};
+  width: 30%;
+  height: 10%;
+  position: absolute;
+  bottom: 15%;
+  padding: 14px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: #f9faff;
+  border-radius: 15px;
+  border-color: #8ed0f4;
+  background-color: ${(props) =>
+    props.disabled
+      ? "#ccc"
+      : "#8ed0f4"}; /* isFormValid가 false면 회색, true면 기존 색상 */
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
 `;
 
 export const QuizStyle = styled.div`
-    margin-top: ${(props) => props.top || "0"};
-    width: 65%;
-    height: 40%;
-    position: absolute;
-    top: 150px;
-    bottom: auto;
-    padding: 14px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
-    color: #333D42;
-    border-radius: 15px;
-    border-color: #FFFFFF;
-    background-color: #FFFFF;
-    /* isFormValid가 false면 회색, true면 기존 색상 */
-    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
-      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  margin-top: ${(props) => props.top || "0"};
+  width: 65%;
+  height: 40%;
+  position: absolute;
+  top: 150px;
+  bottom: auto;
+  padding: 14px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: #333d42;
+  border-radius: 15px;
+  border-color: #ffffff;
+  background-color: #FFFFF;
+  /* isFormValid가 false면 회색, true면 기존 색상 */
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
 `;
 
 /* Home 화면 스타일 */
@@ -496,9 +532,7 @@ export const RegisterSelectBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-<<<<<<< Updated upstream
-`;
-=======
+
 `;
 
 /* Record 페이지 */
@@ -556,4 +590,3 @@ export const ModalStyle = styled.div`
     display: ${(props) => (props.$isopen ? "flex" : "none") };
     flex-direction: column;
 `;
->>>>>>> Stashed changes

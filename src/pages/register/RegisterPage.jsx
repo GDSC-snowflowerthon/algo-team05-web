@@ -27,7 +27,7 @@ export default function RegisterPage() {
   const [gu, setGu] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [correctMessage, setCorrectMessage] = useState("");
-  const [area, setArea] = useState(
+  const [area, setArea] = useState([
     { value: 0, label: "" },
     { value: "0", label: "강남구" },
     { value: "1", label: "강동구" },
@@ -50,8 +50,8 @@ export default function RegisterPage() {
     { value: "18", label: "은평구" },
     { value: "19", label: "종로구" },
     { value: "20", label: "중구" },
-    { value: "21", label: "중량구" }
-  );
+    { value: "21", label: "중량구" },
+  ]);
   /*
   { value: 0, label: "" },
   { value: 0, label: "서울" },
@@ -111,17 +111,17 @@ export default function RegisterPage() {
     }
   }, [city]);
 
-  console.log(registerData);
+  // console.log(registerData);
 
   const handleEmailChange = (e) => {
     const { value } = e.target;
-    console.log(value);
+    // console.log(value);
     setEmail(value);
   };
 
   const handlePasswordChange = (e) => {
     const { value } = e.target;
-    console.log(value);
+    // console.log(value);
     setPassword(value);
     //setPassword(e.target.value);
   };
@@ -137,23 +137,26 @@ export default function RegisterPage() {
     if (isFormValid) {
       setCorrectMessage("가입이 가능합니다.");
       try {
-        const response = await fetch("http://3.39.62.158:8080/users/join", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-            language: language.value,
-            city: city.value,
-            gu: gu.value,
-          }),
-        });
+        const response = await fetch(
+          "https://api.alertglobal.store/users/join",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+              language: language.value,
+              city: city.value,
+              gu: gu.value,
+            }),
+          }
+        );
 
         if (response.ok) {
           navigate("/");
-          console.log("성공");
+          //  console.log("성공");
         } else {
           // 에러 처리
           const data = await response.json();

@@ -1,17 +1,10 @@
-const getShelter = async (region, cookie) => {
+const getAllShelter = async (region, cookie) => {
   try {
-    let response = await fetch(
-      `https://api.alertglobal.store/shelter/search/${region}`,
-      {
-        method: "POST",
-        headers: {
-          "X-ACCESS-TOKEN": { cookie },
-        },
-        body: JSON.stringify({
-          region,
-        }),
-      }
-    );
+    let response = await fetch(`https://api.alertglobal.store/shelter`, {
+      headers: {
+        "X-ACCESS-TOKEN": { cookie },
+      },
+    });
 
     if (response.ok) {
       const data = await response.json();
@@ -26,4 +19,4 @@ const getShelter = async (region, cookie) => {
   }
 };
 
-export { getShelter };
+export { getAllShelter };

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { HomeButtonStyle, Wrapper } from "../../styles/styles";
+import { ButtonStyle, Wrapper } from "../../styles/styles";
 import shelter from "@/assets/images/home/shelter.svg";
 import record from "@/assets/images/home/record.svg";
 import quiz from "@/assets/images/home/quiz.svg";
@@ -29,9 +29,9 @@ export default function Home() {
         alt="Shelter Icon"
         className="icon"
       />
-      <HomeButtonStyle style={{ marginTop: "20px" }} onClick={goToShelterPage}>
+      <ButtonStyle style={{ marginTop: "20px" }} onClick={goToShelterPage}>
         <span>대피소 확인</span>
-      </HomeButtonStyle>
+      </ButtonStyle>
 
       <img
         style={{ marginTop: "50px" }}
@@ -39,7 +39,9 @@ export default function Home() {
         alt="Shelter Icon"
         className="icon"
       />
-      <HomeButtonStyle onClick={goToRecordPage}>재난 문자 기록</HomeButtonStyle>
+      <ButtonStyle style={{ marginTop: "20px" }} onClick={goToRecordPage}>
+        재난 문자 기록
+      </ButtonStyle>
 
       <img
         style={{ marginTop: "50px" }}
@@ -47,7 +49,9 @@ export default function Home() {
         alt="Shelter Icon"
         className="icon"
       />
-      <HomeButtonStyle onClick={goToQuizPage}>재난 키워드 퀴즈</HomeButtonStyle>
+      <ButtonStyle style={{ marginTop: "20px" }} onClick={goToQuizPage}>
+        재난 키워드 퀴즈
+      </ButtonStyle>
     </Wrapper>
   );
 }

@@ -4,12 +4,12 @@ import { OriginStyledSelect } from "@/components/select/OriginSelectStyle";
 
 export default function OriginLanguageSelectBar({ data, setLanguage }) {
   const options = data;
-  const [selectOnline, setSelectOnline] = useState(options[0]);
+  const [selectOnline, setSelectOnline] = useState("");
 
   const handleSelectChange = (selectedOption) => {
     setSelectOnline(selectedOption);
     setLanguage(selectedOption);
-    console.log("select: ", selectedOption);
+    //  console.log("select: ", selectedOption);
   };
 
   return (

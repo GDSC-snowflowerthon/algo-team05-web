@@ -1,13 +1,12 @@
-const setUserInfo = async (city, gu, language) => {
-  console.log("city:", city);
-  console.log("gu", gu);
-  console.log("language", language);
+const setUserInfo = async (city, gu, language, cookie) => {
+  // console.log("city:", city);
+  // console.log("gu", gu);
+  //console.log("language", language);
   try {
-    let response = await fetch(`http://3.39.62.158:8080/setting/change`, {
+    let response = await fetch(`https://api.alertglobal.store/setting/change`, {
       method: "PUT",
       headers: {
-        "X-ACCESS-TOKEN":
-          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTEiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzA0OTg3OTEzLCJleHAiOjE3MDUwMjM5MTN9.DX4IKjjfexrbwroszGojFVie_H9m-FSVtPZljk6ccQE7LHySlWCpVPUpS3ZaA2Cm9DsxpfHUtgDAEm0zQMuf5w",
+        "X-ACCESS-TOKEN": cookie,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -18,7 +17,7 @@ const setUserInfo = async (city, gu, language) => {
     });
 
     if (response.ok) {
-      console.log(response);
+      // console.log(response);
       return response; // Return the data instead of logging it
     } else {
       console.error(`Error: ${response.status} ${response.statusText}`);

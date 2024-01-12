@@ -53,7 +53,7 @@ export default function Map() {
         map: map,
         position: new kakao.maps.LatLng(place.y, place.x),
       });
-      console.log(map);
+      // console.log(map);
 
       // 마커를 클릭하면 장소명이 인포윈도우에 표출
       infowindow.setContent(
