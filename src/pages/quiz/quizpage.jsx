@@ -29,7 +29,7 @@ export default function Quizpage() {
 
 
     const goToback = () => {
-        navigate("/");
+        navigate("/home");
     }
 
     const retry = () => {
@@ -94,7 +94,7 @@ export default function Quizpage() {
         )
         
         }
-        <div style={{ fontSize : '20px', position: "absolute", top: '540px', opacity: alertMessage ? 1 : 0, height: alertMessage ? 'auto' : 0, overflow: 'hidden', transition: "opacity 0.5s, height 0.5s" }}>
+        <div style={{ fontSize : '20px', position: "absolute", top: '510px', opacity: alertMessage ? 1 : 0, height: alertMessage ? 'auto' : 0, overflow: 'hidden', transition: "opacity 0.5s, height 0.5s" }}>
                 <p style={{ color: "#333d42" }}>{alertMessage}</p>
             </div>
     </Wrapper>
