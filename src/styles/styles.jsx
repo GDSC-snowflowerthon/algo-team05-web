@@ -287,12 +287,6 @@ export const ShelterTagBox = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   overflow-y: auto;
-  &::-webkit-scrollbar {
-    width: 0; /* 숨김 */
-  }
-  /* Firefox */
-  scrollbar-width: none; /* Firefox 64+ */
-  -ms-overflow-style: none;
 `;
 
 /*

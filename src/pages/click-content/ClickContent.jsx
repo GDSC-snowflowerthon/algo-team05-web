@@ -16,6 +16,7 @@ import ActionDetailTag from "@/components/click-content/ActionDetailTag";
 import { IoWarningOutline } from "react-icons/io5";
 import Navigation from "@/components/Navigation";
 import { papagoData } from "@/data/PapagoData";
+import { getMessageData } from "@/api/getMessage";
 
 export default function ClickContent() {
   const cookie = localStorage.getItem("accessToken");
@@ -34,9 +35,40 @@ export default function ClickContent() {
   const [user, setUser] = useState(false);
 
   useEffect(() => {
+    console.log("재난문자 받기");
+    console.log(
+      cookie ===
+        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0Iiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTcwNTA4NjY2MiwiZXhwIjoxNzA1MzQ1ODYyfQ.W_aPzn6-th6ZZX8UZLhPT5lDUgs-cOtps7nYeXN0hhmRByR2VBpS8_sFoKSNhH9s7qq61QlJPvreGXsJOXFbFQ"
+        ? "true"
+        : "false"
+    );
+    (async () => {
+      try {
+        setData(await getMessageData(cookie));
+        //  console.log(shelterList[0].description, shelterList[0].address);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
     const language = localStorage.getItem("language");
     console.log(language);
     setLan(language);
+
+    (async () => {
+      try {
+        setData(await getMessageData(cookie));
+        //  console.log(shelterList[0].description, shelterList[0].address);
+        // Do something with the translationData
+      } catch (error) {
+        // Handle errors
+        console.error("Error:", error);
+      }
+    })();
   }, [user]);
 
   useEffect(() => {
@@ -127,34 +159,6 @@ export default function ClickContent() {
     }
   }, [lan]);
 
-  const getMessageData = async () => {
-    try {
-      let response = await fetch(
-        `https://api.alertglobal.store/disaster/message`,
-        {
-          method: "GET",
-          headers: {
-            "X-ACCESS-TOKEN": cookie,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.ok) {
-        // 여기에서 response.json() 또는 response.text()를 사용하여 데이터를 처리
-        // console.log(response);
-        const data = await response.json();
-        setData(data);
-        // setData(data);
-      } else {
-        // 오류 응답 처리
-        console.error(`Error: ${response.status} ${response.statusText}`);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   /*
   // 번역 기능
   useEffect(() => {
@@ -180,10 +184,6 @@ export default function ClickContent() {
     setOpenLocate(false);
     setOpenAction(true);
   };
-
-  useEffect(() => {
-    getMessageData();
-  }, []);
 
   return (
     <Wrapper>

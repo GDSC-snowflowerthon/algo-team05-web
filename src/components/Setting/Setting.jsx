@@ -13,12 +13,12 @@ import { papagoData } from "../../data/PapagoData";
 
 export default function Setting({ setIsShow, setUser, user }) {
   const cookie = localStorage.getItem("accessToken");
-  const cookie_ = localStorage.getItem("language");
+  // const cookie_ = localStorage.getItem("language");
 
   // const [isOn, setIsOn] = useState(true);
   // const [data, setData] = useState();
   const [language, setLanguage] = useState();
-  const [city, setCity] = useState();
+  const [city, setCity] = useState(areas);
   const [gu, setGu] = useState();
 
   const [set, setSet] = useState("설정");
@@ -27,35 +27,13 @@ export default function Setting({ setIsShow, setUser, user }) {
 
   const [lan, setLan] = useState("");
 
-  const [area, setArea] = useState([
-    { value: "99", label: "" },
-    { value: "0", label: "강남구" },
-    { value: "1", label: "강동구" },
-    { value: "2", label: "강북구" },
-    { value: "3", label: "강서구" },
-    { value: "4", label: "관악구" },
-    { value: "5", label: "광진구" },
-    { value: "6", label: "구로구" },
-    { value: "7", label: "금천구" },
-    { value: "8", label: "노원구" },
-    { value: "9", label: "도봉구" },
-    { value: "10", label: "마포구" },
-    { value: "11", label: "서대문구" },
-    { value: "12", label: "서초구" },
-    { value: "13", label: "성동구" },
-    { value: "14", label: "성북구" },
-    { value: "15", label: "송파구" },
-    { value: "16", label: "양천구" },
-    { value: "17", label: "영등포구" },
-    { value: "18", label: "은평구" },
-    { value: "19", label: "종로구" },
-    { value: "20", label: "중구" },
-    { value: "21", label: "중량구" },
-  ]);
+  const [area, setArea] = useState([]);
+  console.log("gu : ", area);
+
+  const [change, setChange] = useState(false);
 
   useEffect(() => {
     const language = localStorage.getItem("language");
-    console.log(language);
     setLan(language);
   }, [user]);
 
@@ -125,42 +103,59 @@ export default function Setting({ setIsShow, setUser, user }) {
 
   // 지역에 따라 구 바꾸기
   useEffect(() => {
-    if (city == "서울") {
+    console.log("change? : ", city);
+    if (city == "서울특별시") {
       setArea(registerData.seoulDistricts);
-    } else if (city == "인천") {
+    }
+    if (city == "인천광역시") {
       setArea(registerData.icDistricts);
-    } else if (city == "경기도") {
+    }
+    if (city == "경기도") {
       setArea(registerData.gyeonggiDistricts);
-    } else if (city == "강원도") {
+    }
+    if (city == "강원특별자치도") {
       setArea(registerData.gangwonDistricts);
-    } else if (city == "세종") {
+    }
+    if (city == "세종특별자치시") {
       setArea(registerData.sejongDistrict);
-    } else if (city == "대전") {
+    }
+    if (city == "대전광역시") {
       setArea(registerData.daejeonDistricts);
-    } else if (city == "충청남도") {
+    }
+    if (city == "충청남도") {
       setArea(registerData.cnDistricts);
-    } else if (city == "충청북도") {
+    }
+    if (city == "충청북도") {
       setArea(registerData.cbDistricts);
-    } else if (city == "경상북도") {
+    }
+    if (city == "경상북도") {
       setArea(registerData.kbDistricts);
-    } else if (city == "경상남도") {
+    }
+    if (city == "경상남도") {
       setArea(registerData.knDistricts);
-    } else if (city == "대구") {
+    }
+    if (city == "대구광역시") {
       setArea(registerData.dagueDistricts);
-    } else if (city == "울산") {
+    }
+    if (city == "울산광역시") {
       setArea(registerData.ulsanDistricts);
-    } else if (city == "부산") {
+    }
+    if (city == "부산광역시") {
       setArea(registerData.busanDistricts);
-    } else if (city == "전라북도") {
+    }
+    if (city == "전라북도") {
       setArea(registerData.jbDistricts);
-    } else if (city == "전라남도") {
+    }
+    if (city == "전라남도") {
       setArea(registerData.jnDistricts);
-    } else if (city == "광주") {
+    }
+    if (city == "광주광역시") {
       setArea(registerData.gwangjuDistricts);
-    } else if (city == "제주") {
+    }
+    if (city == "제주특별자치도") {
       setArea(registerData.jejuDistricts);
     }
-  }, [city]);
+  }, [change]);
 
   const isFormValid = language !== "" && city !== "" && gu !== "";
 
@@ -168,16 +163,11 @@ export default function Setting({ setIsShow, setUser, user }) {
     if (isFormValid) {
       (async () => {
         try {
-          localStorage.setItem("language", language.value);
+          localStorage.setItem("language", language);
           setUser(!user);
-          console.log(user);
+          console.log("city: ", city, "gu: ", gu, "language: ", language);
           setIsShow(false);
-          const newData = await setUserInfo(
-            city.value,
-            gu.value,
-            language.value,
-            cookie
-          );
+          await setUserInfo(city, gu, language, cookie);
           //   console.log(newData);
           // Do something with the translationData
         } catch (error) {
@@ -216,27 +206,18 @@ export default function Setting({ setIsShow, setUser, user }) {
   };
   */
 
-  const findAreaByValue = (value, data) => {
-    const selectedArea = data.find((item) => item.value === value);
-    return selectedArea || null; // return null if not found
-  };
-
   // 유저 정보 바로 받아오기
   useEffect(() => {
     (async () => {
       try {
         const newData = await getUserInfo(cookie);
-        //  console.log(newData);
+        console.log(newData);
         // setData(newData);
 
         localStorage.setItem("language", newData.language);
-
-        const selectedLanguage = findAreaByValue(newData.language, codes);
-        const selectedCity = findAreaByValue(newData.city, areas);
-        const selectedGu = findAreaByValue(newData.gu, area);
-        setLanguage(selectedLanguage);
-        setCity(selectedCity);
-        setGu(selectedGu);
+        setLanguage(newData.language);
+        setCity(newData.city);
+        setGu(newData.gu);
       } catch (error) {
         // Handle errors
         console.error("Error:", error);
@@ -274,15 +255,16 @@ export default function Setting({ setIsShow, setUser, user }) {
         <Title>{set}</Title>
         <ContentBox>
           <Content top="19px">언어(language)</Content>
-          <LanguageSelectBar
-            data={codes}
-            setLanguage={setLanguage}
-            language={language}
-          />
+          <LanguageSelectBar data={codes} setLanguage={setLanguage} />
           <Content top="11px">지역(area)</Content>
-          <CitySelectBar data={areas} setCity={setCity} city={city} />
+          <CitySelectBar
+            data={areas}
+            setCity={setCity}
+            change={change}
+            setChange={setChange}
+          />
           <Content top="11px">구(gu)</Content>
-          <GuSelectBar data={area} setGu={setGu} gu={gu} />
+          <GuSelectBar data={area} setGu={setGu} />
         </ContentBox>
         <FlexRow>
           <ButtonStyle top="57px" onClick={handleCancel}>

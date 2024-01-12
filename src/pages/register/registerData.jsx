@@ -1,4 +1,5 @@
 export const registerData = {
+  // 서울
   seoulDistricts: [
     { value: 0, label: "" },
     { value: "0", label: "강남구" },
@@ -25,6 +26,7 @@ export const registerData = {
     { value: "21", label: "중량구" },
   ],
 
+  // 경기
   gyeonggiDistricts: [
     { value: 0, label: "" },
     { value: "22", label: "수원시" },
@@ -56,6 +58,7 @@ export const registerData = {
     { value: "48", label: "여주시" },
   ],
 
+  //
   ulsanDistricts: [
     { value: 0, label: "" },
     { value: "49", label: "중구" },
@@ -93,17 +96,20 @@ export const registerData = {
     { value: "69", label: "계양구" },
     { value: "70", label: "서구" },
   ],
+
+  // 대구
   dagueDistricts: [
     { value: 0, label: "" },
     { value: "71", label: "중구" },
-    { value: "72", label: "동구" },
+    { value: "108", label: "동구" },
     { value: "73", label: "서구" },
     { value: "74", label: "남구" },
     { value: "75", label: "북구" },
-    { value: "76", label: "수성구" },
+    { value: "111", label: "수성구" },
     { value: "77", label: "달서구" },
   ],
 
+  // 부산
   busanDistricts: [
     { value: 0, label: "" },
     { value: "78", label: "중구" },
@@ -111,13 +117,13 @@ export const registerData = {
     { value: "80", label: "동구" },
     { value: "81", label: "영도구" },
     { value: "82", label: "부산진구" },
-    { value: "83", label: "동래구" },
+    { value: "125", label: "동래구" },
     { value: "84", label: "남구" },
     { value: "85", label: "북구" },
     { value: "86", label: "강서구" },
-    { value: "87", label: "해운대구" },
+    { value: "135", label: "해운대구" },
     { value: "88", label: "사하구" },
-    { value: "89", label: "금정구" },
+    { value: "121", label: "금정구" },
     { value: "90", label: "연제구" },
     { value: "91", label: "수영구" },
     { value: "92", label: "사상구" },
@@ -178,6 +184,7 @@ export const registerData = {
     { value: "123", label: "광양시" },
   ],
 
+  // 경상북도
   kbDistricts: [
     { value: 0, label: "" },
     { value: "332", label: "포항시" },

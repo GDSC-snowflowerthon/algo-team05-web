@@ -32,7 +32,6 @@ export default function Shelter() {
   const [title, setTitle] = useState("대피소 검색");
 
   const [open, setOpen] = useState(false);
-  const [text, setText] = useState("");
 
   const [detailTitle, setDetailTitle] = useState("");
   const [detailAddress, setDetailAddress] = useState("");

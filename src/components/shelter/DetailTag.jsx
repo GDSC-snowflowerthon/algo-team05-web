@@ -30,7 +30,6 @@ export default function DetailTag({ setOpen, title, address }) {
         <Content>{address}</Content>
       </FlexRow>
       <FlexRow>
-        <Call />
         <Content></Content>
       </FlexRow>
     </TagBox>

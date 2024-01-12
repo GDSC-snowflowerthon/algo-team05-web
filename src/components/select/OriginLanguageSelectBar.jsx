@@ -4,7 +4,10 @@ import { OriginStyledSelect } from "@/components/select/OriginSelectStyle";
 
 export default function OriginLanguageSelectBar({ data, setLanguage }) {
   const options = data;
-  const [selectOnline, setSelectOnline] = useState("");
+  const [selectOnline, setSelectOnline] = useState({
+    value: "77",
+    label: "선택해주세요",
+  });
 
   const handleSelectChange = (selectedOption) => {
     setSelectOnline(selectedOption);

@@ -1,21 +1,25 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { StyledSelect } from "@/components/select/SelectStyle";
 
-export default function GuSelectBar({ data, setGu, gu }) {
-  const options = data;
-  const firstValue = { value: "77", label: "선택" };
-
+export default function GuSelectBar({ data, setGu }) {
+  console.log(data);
+  const [selectOnline, setSelectOnline] = useState({
+    value: "77",
+    label: "선택해주세요",
+  });
   const handleSelectChange = (selectedOption) => {
-    setGu(selectedOption);
+    setSelectOnline(selectedOption);
+    setGu(selectedOption.label);
     // console.log("select: ", selectedOption);
   };
 
   return (
     <div>
       <StyledSelect
-        options={options} //위에서 만든 배열을 select로 넣기
+        options={data} //위에서 만든 배열을 select로 넣기
         onChange={handleSelectChange} //값이 바뀌면 setState되게
-        defaultValue={firstValue}
+        defaultValue={selectOnline}
       />
     </div>
   );
@@ -24,5 +28,4 @@ export default function GuSelectBar({ data, setGu, gu }) {
 GuSelectBar.propTypes = {
   data: PropTypes.array, // or whatever type your 'data' should be
   setGu: PropTypes.func,
-  gu: PropTypes.object,
 };

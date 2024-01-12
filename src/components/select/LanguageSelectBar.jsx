@@ -1,15 +1,16 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { StyledSelect } from "@/components/select/SelectStyle";
 
-export default function LanguageSelectBar({ data, setLanguage, language }) {
+export default function LanguageSelectBar({ data, setLanguage }) {
   const options = data;
-  const firstValue =
-    language && language.value && language.label
-      ? { value: language.value, label: language.label }
-      : { value: "77", label: "선택" };
-
+  const [selectOnline, setSelectOnline] = useState({
+    value: "77",
+    label: "선택해주세요",
+  });
   const handleSelectChange = (selectedOption) => {
-    setLanguage(selectedOption);
+    setSelectOnline(selectedOption);
+    setLanguage(selectedOption.value);
     //  console.log("select: ", selectedOption);
   };
 
@@ -18,7 +19,7 @@ export default function LanguageSelectBar({ data, setLanguage, language }) {
       <StyledSelect
         options={options} //위에서 만든 배열을 select로 넣기
         onChange={handleSelectChange} //값이 바뀌면 setState되게
-        defaultValue={firstValue}
+        defaultValue={selectOnline}
       />
     </div>
   );
@@ -27,5 +28,4 @@ export default function LanguageSelectBar({ data, setLanguage, language }) {
 LanguageSelectBar.propTypes = {
   data: PropTypes.array, // or whatever type your 'data' should be
   setLanguage: PropTypes.func,
-  language: PropTypes.object,
 };

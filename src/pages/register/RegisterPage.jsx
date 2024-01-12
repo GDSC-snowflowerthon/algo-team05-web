@@ -27,31 +27,10 @@ export default function RegisterPage() {
   const [gu, setGu] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [correctMessage, setCorrectMessage] = useState("");
-  const [area, setArea] = useState([
-    { value: 0, label: "" },
-    { value: "0", label: "강남구" },
-    { value: "1", label: "강동구" },
-    { value: "2", label: "강북구" },
-    { value: "3", label: "강서구" },
-    { value: "4", label: "관악구" },
-    { value: "5", label: "광진구" },
-    { value: "6", label: "구로구" },
-    { value: "7", label: "금천구" },
-    { value: "8", label: "노원구" },
-    { value: "9", label: "도봉구" },
-    { value: "10", label: "마포구" },
-    { value: "11", label: "서대문구" },
-    { value: "12", label: "서초구" },
-    { value: "13", label: "성동구" },
-    { value: "14", label: "성북구" },
-    { value: "15", label: "송파구" },
-    { value: "16", label: "양천구" },
-    { value: "17", label: "영등포구" },
-    { value: "18", label: "은평구" },
-    { value: "19", label: "종로구" },
-    { value: "20", label: "중구" },
-    { value: "21", label: "중량구" },
-  ]);
+
+  const [change, setChange] = useState(false);
+
+  const [area, setArea] = useState([]);
   /*
   { value: 0, label: "" },
   { value: 0, label: "서울" },
@@ -74,17 +53,17 @@ export default function RegisterPage() {
   */
 
   useEffect(() => {
-    if (city.label == "서울") {
+    if (city.label == "서울특별시") {
       setArea(registerData.seoulDistricts);
-    } else if (city.label == "인천") {
+    } else if (city.label == "인천광역시") {
       setArea(registerData.icDistricts);
     } else if (city.label == "경기도") {
       setArea(registerData.gyeonggiDistricts);
-    } else if (city.label == "강원도") {
+    } else if (city.label == "강원특별자치도") {
       setArea(registerData.gangwonDistricts);
-    } else if (city.label == "세종") {
+    } else if (city.label == "세종특별자치시") {
       setArea(registerData.sejongDistrict);
-    } else if (city.label == "대전") {
+    } else if (city.label == "대전광역시") {
       setArea(registerData.daejeonDistricts);
     } else if (city.label == "충청남도") {
       setArea(registerData.cnDistricts);
@@ -94,22 +73,22 @@ export default function RegisterPage() {
       setArea(registerData.kbDistricts);
     } else if (city.label == "경상남도") {
       setArea(registerData.knDistricts);
-    } else if (city.label == "대구") {
+    } else if (city.label == "대구광역시") {
       setArea(registerData.dagueDistricts);
-    } else if (city.label == "울산") {
+    } else if (city.label == "울산광역시") {
       setArea(registerData.ulsanDistricts);
-    } else if (city.label == "부산") {
+    } else if (city.label == "부산광역시") {
       setArea(registerData.busanDistricts);
     } else if (city.label == "전라북도") {
       setArea(registerData.jbDistricts);
     } else if (city.label == "전라남도") {
       setArea(registerData.jnDistricts);
-    } else if (city.label == "광주") {
+    } else if (city.label == "광주광역시") {
       setArea(registerData.gwangjuDistricts);
-    } else if (city.label == "제주") {
+    } else if (city.label == "제주특별자치도") {
       setArea(registerData.jejuDistricts);
     }
-  }, [city]);
+  }, [change]);
 
   // console.log(registerData);
 
@@ -129,9 +108,9 @@ export default function RegisterPage() {
   const isFormValid =
     email !== "" &&
     password !== "" &&
-    language !== "" &&
-    city !== "" &&
-    gu !== "";
+    language.label !== "" &&
+    city.label !== "" &&
+    gu.label !== "";
 
   const handleSignUp = async () => {
     if (isFormValid) {
@@ -148,8 +127,8 @@ export default function RegisterPage() {
               email: email,
               password: password,
               language: language.value,
-              city: city.value,
-              gu: gu.value,
+              city: city.label,
+              gu: gu.label,
             }),
           }
         );
@@ -201,7 +180,12 @@ export default function RegisterPage() {
         <Lttext style={{ marginTop: "20px" }}>언어 선택(language)</Lttext>
         <OriginLanguageSelectBar data={codes} setLanguage={setLanguage} />
         <Lttext style={{ marginTop: "20px" }}>지역 선택(city)</Lttext>
-        <OriginCitySelectBar data={areas} setCity={setCity} />
+        <OriginCitySelectBar
+          data={areas}
+          setCity={setCity}
+          change={change}
+          setChange={setChange}
+        />
         <Lttext style={{ marginTop: "20px" }}>시/구/군 선택(gu)</Lttext>
         <OriginGuSelectBar data={area} setGu={setGu} />
       </RegisterSelectBox>
