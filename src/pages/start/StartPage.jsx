@@ -20,7 +20,6 @@ export default function StartPage() {
     navigate("/register");
   };
 
-  /*
   useEffect(() => {
     const logoElement = document.querySelector(".icon");
     const mainElement = document.querySelector(".Main");
@@ -39,7 +38,9 @@ export default function StartPage() {
     }
   }, []);
 
-  <img
+  return (
+    <Wrapper>
+      <img
         style={{ marginTop: "160px", opacity: 0 }}
         src={Logo}
         alt="Logo Icon"
@@ -50,11 +51,6 @@ export default function StartPage() {
         <Main_2 className="Main2">Alert Global</Main_2>
       </Main>
       <Main_3 className="Main3">세계인을 위한 재난문자 안내 서비스</Main_3>
-
-  */
-
-  return (
-    <Wrapper>
       <ButtonStyle onClick={goLogin}>로그인 (Signin)</ButtonStyle>
       <ButtonStyle
         onClick={goRegister}
