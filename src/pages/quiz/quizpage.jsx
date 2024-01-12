@@ -1,9 +1,12 @@
 import { Ttitle, Wrapper, QuizButtonStyle, QuizStyle, Lttext } from "../../styles/styles";
 import { quizdata } from '@/pages/quiz/quizdata';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Quizpage() {
     const quiz = quizdata;
+    const navigate = useNavigate();
+    const [modal, setModal] = useState(false);
     const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
     const [isAnswered, setIsAnswered] = useState(false);
     const [correctCount, setCorrectCount] = useState(0);
@@ -61,7 +64,12 @@ export default function Quizpage() {
         ) : 
         (<>
         <QuizButtonStyle style={{ left: '13%', right: 'auto', fontSize : '25px' }} onClick={() => {retry()}}>다시하기</QuizButtonStyle>
-        <QuizButtonStyle style={{ right: '13%', left: 'auto', fontSize : '25px' }} onClick={() => {goToback()}}>돌아가기</QuizButtonStyle></>
+        <QuizButtonStyle style={{ right: '13%', left: 'auto', fontSize : '25px' }} onClick={() => {goToback()}}>돌아가기</QuizButtonStyle>
+        <QuizAnswerStyle onClick={() => {setModal(true)}}> 정답 확인하기 </QuizAnswerStyle>
+        <ModalStyle isopen={modal} >
+            모달입니다.
+        </ModalStyle>
+        </>
         )
         }
         <div style={{ fontSize : '20px', position: "absolute", top: '540px', opacity: alertMessage ? 1 : 0, height: alertMessage ? 'auto' : 0, overflow: 'hidden', transition: "opacity 0.5s, height 0.5s" }}>

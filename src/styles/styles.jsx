@@ -496,4 +496,64 @@ export const RegisterSelectBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
+<<<<<<< Updated upstream
 `;
+=======
+`;
+
+/* Record 페이지 */
+export const TableBox = styled.div`
+  position: relative;
+  align-items: center;
+  margin-top: 28px;
+  width: 100%;
+  max-width: 350px;
+  max-height: 550px;
+  background-color: translate;
+  overflow-y: auto;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 0; /* 숨김 */
+  }
+  /* Firefox */
+  scrollbar-width: none; /* Firefox 64+ */
+  -ms-overflow-style: none;
+`;
+
+export const QuizAnswerStyle = styled.button`
+    width: 70%;
+    height: 8%;
+    position: absolute;
+    bottom : 4%;
+    padding: 14px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 500;
+    color: #f9faff;
+    border-radius: 15px;
+    border-color : #8ed0f4;
+    background-color: ${(props) => (props.disabled ? '#ccc' : '#8ed0f4')}; /* isFormValid가 false면 회색, true면 기존 색상 */
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+`;
+
+export const ModalStyle = styled.div`
+    z-index: 500;
+    width: 65%;
+    height: 50%;
+    position: absolute;
+    top: 150px;
+    bottom: auto;
+    padding: 14px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #333D42;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+      -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+    display: ${(props) => (props.$isopen ? "flex" : "none") };
+    flex-direction: column;
+`;
+>>>>>>> Stashed changes
