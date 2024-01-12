@@ -9,7 +9,7 @@ export default function OriginLanguageSelectBar({ data, setLanguage }) {
   const handleSelectChange = (selectedOption) => {
     setSelectOnline(selectedOption);
     setLanguage(selectedOption);
-    console.log("select: ", selectedOption);
+    //  console.log("select: ", selectedOption);
   };
 
   return (

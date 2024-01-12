@@ -10,7 +10,7 @@ export default function LanguageSelectBar({ data, setLanguage, language }) {
 
   const handleSelectChange = (selectedOption) => {
     setLanguage(selectedOption);
-    console.log("select: ", selectedOption);
+    //  console.log("select: ", selectedOption);
   };
 
   return (

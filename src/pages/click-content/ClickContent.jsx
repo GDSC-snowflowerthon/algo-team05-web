@@ -34,7 +34,7 @@ export default function ClickContent() {
         // 여기에서 response.json() 또는 response.text()를 사용하여 데이터를 처리
         // console.log(response);
         const data = await response.json();
-        console.log(data);
+        //  console.log(data);
         setData(data);
       } else {
         // 오류 응답 처리

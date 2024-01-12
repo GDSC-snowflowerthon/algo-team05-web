@@ -10,7 +10,7 @@ export default function GuSelectBar({ data, setGu, gu }) {
 
   const handleSelectChange = (selectedOption) => {
     setGu(selectedOption);
-    console.log("select: ", selectedOption);
+    // console.log("select: ", selectedOption);
   };
 
   return (

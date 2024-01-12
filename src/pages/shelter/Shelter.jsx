@@ -25,7 +25,7 @@ export default function Shelter() {
 
   const location = useLocation();
   const [data, setData] = useState(location.state.area || null);
-  console.log(data); // 지역을 받아옵니다.
+  // console.log(data); // 지역을 받아옵니다.
 
   const [title, setTitle] = useState("대피소 검색");
 
@@ -61,7 +61,7 @@ export default function Shelter() {
   };
 
   const handleSearch = (keyword) => {
-    console.log("클릭");
+    // console.log("클릭");
     setData(keyword);
 
     const getCode = findAreaByValue(keyword, shelterSelectCodes);
@@ -69,7 +69,7 @@ export default function Shelter() {
     (async () => {
       try {
         setShelterList(await getShelter(getCode, cookie));
-        console.log(shelterList);
+        //   console.log(shelterList);
         // Do something with the translationData
       } catch (error) {
         // Handle errors

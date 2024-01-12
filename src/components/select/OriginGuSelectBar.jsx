@@ -9,7 +9,7 @@ export default function OriginGuSelectBar({ data, setGu }) {
   const handleSelectChange = (selectedOption) => {
     setSelectOnline(selectedOption);
     setGu(selectedOption);
-    console.log("select: ", selectedOption);
+    // console.log("select: ", selectedOption);
   };
 
   return (

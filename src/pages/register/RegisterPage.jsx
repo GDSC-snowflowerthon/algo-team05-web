@@ -111,17 +111,17 @@ export default function RegisterPage() {
     }
   }, [city]);
 
-  console.log(registerData);
+  // console.log(registerData);
 
   const handleEmailChange = (e) => {
     const { value } = e.target;
-    console.log(value);
+    // console.log(value);
     setEmail(value);
   };
 
   const handlePasswordChange = (e) => {
     const { value } = e.target;
-    console.log(value);
+    // console.log(value);
     setPassword(value);
     //setPassword(e.target.value);
   };
@@ -153,7 +153,7 @@ export default function RegisterPage() {
 
         if (response.ok) {
           navigate("/");
-          console.log("성공");
+          //  console.log("성공");
         } else {
           // 에러 처리
           const data = await response.json();

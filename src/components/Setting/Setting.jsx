@@ -45,9 +45,9 @@ export default function Setting({ setIsShow }) {
     { value: "21", label: "중량구" },
   ]);
 
-  console.log(city);
-  console.log(language);
-  console.log(gu);
+  // console.log(city);
+  // console.log(language);
+  // console.log(gu);
 
   // 지역에 따라 구 바꾸기
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function Setting({ setIsShow }) {
             language.value,
             cookie
           );
-          console.log(newData);
+          //   console.log(newData);
           // Do something with the translationData
         } catch (error) {
           // Handle errors
@@ -150,7 +150,7 @@ export default function Setting({ setIsShow }) {
     (async () => {
       try {
         const newData = await getUserInfo(cookie);
-        console.log(newData);
+        //  console.log(newData);
         // setData(newData);
 
         localStorage.setItem("language", newData.language);

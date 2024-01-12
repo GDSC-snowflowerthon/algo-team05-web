@@ -9,7 +9,7 @@ export default function OriginCitySelectBar({ data, setCity }) {
   const handleSelectChange = (selectedOption) => {
     setSelectOnline(selectedOption);
     setCity(selectedOption);
-    console.log("select: ", selectedOption);
+    // console.log("select: ", selectedOption);
   };
 
   return (

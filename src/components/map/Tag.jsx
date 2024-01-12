@@ -51,8 +51,8 @@ export default function Tag({
   const handleSelect = () => {
     setArea(children);
   };
-  console.log("c: ", children);
-  console.log("s: ", selectedArea);
+  // console.log("c: ", children);
+  // console.log("s: ", selectedArea);
 
   // clicke 시 "clicked" class를 추가하여 미리 정의한 clicked 이벤트를 활성화한다.
   return (

@@ -9,7 +9,6 @@ const getUserInfo = async (cookie) => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       return data; // Return the data instead of logging it
     } else {
       console.error(`Error: ${response.status} ${response.statusText}`);

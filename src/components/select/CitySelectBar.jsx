@@ -10,7 +10,7 @@ export default function CitySelectBar({ data, setCity, city }) {
 
   const handleSelectChange = (selectedOption) => {
     setCity(selectedOption);
-    console.log("select: ", selectedOption);
+    //  console.log("select: ", selectedOption);
   };
 
   return (
