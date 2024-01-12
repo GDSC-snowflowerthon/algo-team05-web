@@ -3,6 +3,27 @@ import { theme } from "@/styles/theme";
 import InfoImoge from "@/assets/images/shelter/information.svg";
 import SearchImoge from "@/assets/images/shelter/search.svg";
 import ScrollArrow from "@/assets/images/shelter/scrollarrow.svg";
+import Logo from "@/assets/images/start/logo.svg";
+
+const slideOn = keyframes`
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;
+
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 // 페이지별로 용도 나눠주세요
 /**  샘플 페이지 스타일 **/
@@ -34,6 +55,7 @@ export const ButtonStyle = styled.button`
   text-align: center;
   font-size: 18px;
   font-weight: 700;
+  font-family: Chakra Petch;
   color: ${(props) => props.color || "#f9faff"};
   border-radius: 15px;
   background-color: ${(props) => props.bg || "#8ed0f4"};
@@ -41,6 +63,25 @@ export const ButtonStyle = styled.button`
     -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
   cursor: pointer;
   font-famiy: "Chakra petch";
+`;
+
+export const HomeButtonStyle = styled.button`
+  margin-top: ${(props) => props.top || "0"};
+  margin-bottom: ${(props) => props.bottom || "0"};
+  width: 50%;
+  padding: 14px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: Chakra Petch;
+  color: ${(props) => props.color || "#f9faff"};
+  border-radius: 15px;
+  background-color: ${(props) => props.bg || "#8ed0f4"};
+  box-shadow: 4px 4px 6px 0px rgba(171, 194, 212, 0.6),
+    -4px -4px 6px 0px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-famiy: "Chakra petch";
+  animation: ${FadeIn} 3s ease-in-out;
 `;
 
 export const TextLeft = styled.div`
@@ -284,71 +325,50 @@ export const SettingsButton = styled.button`
   margin: 10px;
 `;
 
-export const Main = styled.div`
+export const HomeLogo = styled.div`
+  margin-top: 160px;
+  width: 170px;
+  height: 190px;
+  background: url(${Logo});
+  background-repeat: no-repeat;
+  animation: ${slideOn} 0.8s ease-in-out;
+`;
+
+export const ServiceTitle = styled.div`
   margin-top: 20px;
-  font-size: 25px;
+  color: #333d42;
+  text-align: center;
+  font-family: Chakra Petch;
+  font-size: 30px;
   font-weight: 700;
-  color: #333d42;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 1s;
-
-  &.fade-in {
-    opacity: 1;
+  letter-spacing: -0.312px;
+  animation: ${slideOn} 0.8s ease-in-out 0.1s;
+  pointer-events: none;
 `;
-export const Main_2 = styled.div`
+
+export const ServiceContent = styled.div`
   margin-top: 5px;
-  font-size: 20px;
-  font-weight: 350;
   color: #333d42;
   text-align: center;
-
-  opacity: 0;
-  transition: opacity 1s;
-
-  &.fade-in {
-    opacity: 1;
-  }
-`;
-export const Main_3 = styled.div`
-  margin-top: 15px;
-  margin-bottom: 50px;
+  font-family: Chakra Petch;
   font-size: 15px;
-  font-weight: 350;
+  font-weight: 400;
+  letter-spacing: -0.312px;
+  animation: ${slideOn} 0.8s ease-in-out 0.1s;
+  pointer-events: none;
+`;
+
+export const ServiceInform = styled.div`
+  margin-top: 20px;
   color: #333d42;
   text-align: center;
-
-  opacity: 0;
-  transition: opacity 1s;
-
-  &.fade-in {
-    opacity: 1;
-  }
-`;
-export const StartButtonStyle = styled.button`
-  margin-top: 20px;
-  width: 50%;
-  padding: 14px;
-  text-align: center;
-  font-size: 18px;
+  font-family: Chakra Petch;
+  font-size: 15px;
   font-weight: 400;
-  color: #f9faff;
-  border-radius: 15px;
-  border-color: #8ed0f4;
-  background-color: #8ed0f4;
-  box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
-    -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
+  letter-spacing: -0.312px;
+  animation: ${slideOn} 0.8s ease-in-out 0.1s;
+  pointer-events: none;
 `;
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
 /* quiz 페이지 스타일*/
 export const RegisterButtonStyle = styled.button`
   margin-top: ${(props) => props.top || "0"};
@@ -427,20 +447,7 @@ export const QuizStyle = styled.div`
 `;
 
 /* Home 화면 스타일 */
-export const HomeButtonStyle = styled.button`
-  margin-top: 20px;
-  width: 50%;
-  padding: 14px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 700;
-  color: #f9faff;
-  border-radius: 15px;
-  border-color: #8ed0f4;
-  background-color: #8ed0f4;
-  box-shadow: 2px 2px 2px 0px rgba(171, 194, 212, 0.6),
-    -2px -2px 2px 0px rgba(255, 255, 255, 0.5);
-`;
+
 /* MsgRecord 페이지 */
 export const Msgtable = styled.table`
   margin-top: 10px;
