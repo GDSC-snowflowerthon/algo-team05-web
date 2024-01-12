@@ -61,14 +61,15 @@ export const StyledTable = styled.table`
 
   th,
   td {
-    padding: 7px;
+    padding: 10px;
     border: 1px solid #ddd; /* Add border between cells */
     text-align: left;
     font-size: 12px;
   }
 
   th {
-    background-color: #f2f2f2; /* Add a background color to header cells */
+    background-color: #f2f2f2;
+    /* Add a background color to header cells */
   }
 
   tbody tr:hover {

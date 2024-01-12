@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "@/pages/home/Home";
 import TestPage from "@/pages/test/TestPage";
 import ClickContent from "@/pages/click-content/ClickContent";
-import Navigation from "@/components/Navigation";
 import SelectMap from "@/pages/map/SelectMap";
 import Shelter from "@/pages/shelter/Shelter";
 import StartPage from "@/pages/start/StartPage";
@@ -11,9 +11,14 @@ import LoginPage from "@/pages/login/Loginpage";
 import RegisterPage from "@/pages/register/RegisterPage";
 import Record from "@/pages/record/Record.jsx";
 import NotFound from "@/components/Error/NotFound.jsx";
+import { requestPermission } from "./firebase-massaging.js";
 //import'@/assets/fonts/Fonts.css'
 
 function App() {
+  useEffect(() => {
+    // 컴포넌트가 마운트될 때 한 번만 호출
+    requestPermission();
+  }, []);
   return (
     <>
       <Routes>

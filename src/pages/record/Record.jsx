@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Table from "@/components/record/Table";
 import { msgRecords } from "./RecordData";
+import { messages } from "@/data/messages";
 import { Wrapper, Title, ButtonStyle, TableBox } from "@/styles/styles";
 
 export default function Record() {
@@ -43,15 +44,14 @@ export default function Record() {
 
   const data = useMemo(
     () =>
-      msgRecords.map((record) => ({
+      messages.map((record) => ({
         CREAT_DT: record.CREAT_DT,
         MSG_CN: record.MSG_CN,
         RCV_AREA_ID: record.RCV_AREA_ID,
         EMRGNCY_STEP_NM: record.EMRGNCY_STEP_NM,
         DSSTR_SE_ID: record.DSSTR_SE_ID,
-        생성일시: record.생성일시,
       })),
-    [msgRecords]
+    [messages]
   );
 
   return (

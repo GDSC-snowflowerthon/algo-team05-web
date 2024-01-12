@@ -17,13 +17,14 @@ import { IoWarningOutline } from "react-icons/io5";
 import Navigation from "@/components/Navigation";
 import { papagoData } from "@/data/PapagoData";
 import { getMessageData } from "@/api/getMessage";
+import { messageData } from "@/data/messageData";
 
 export default function ClickContent() {
   const cookie = localStorage.getItem("accessToken");
 
   const [openLocate, setOpenLocate] = useState(false);
   const [openAction, setOpenAction] = useState(false);
-  const [data, setData] = useState("");
+  const [data, setData] = useState(messageData);
 
   const [origin, setOrigin] = useState("원본 내용");
   const [trans, setTrans] = useState("번역된 내용");
@@ -61,7 +62,9 @@ export default function ClickContent() {
 
     (async () => {
       try {
-        setData(await getMessageData(cookie));
+        let newData = await getMessageData(cookie);
+        console.log(newData);
+        setData(newData);
         //  console.log(shelterList[0].description, shelterList[0].address);
         // Do something with the translationData
       } catch (error) {
