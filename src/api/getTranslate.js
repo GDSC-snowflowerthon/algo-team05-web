@@ -1,14 +1,17 @@
 const getTranslate = async (title, cookie) => {
   try {
-    let response = await fetch(`http://3.39.62.158:8080/papago/translate`, {
-      method: "POST",
-      headers: {
-        "X-ACCESS-TOKEN": cookie,
-      },
-      body: JSON.stringify({
-        prompt: { title },
-      }),
-    });
+    let response = await fetch(
+      `https://api.alertglobal.store/papago/translate`,
+      {
+        method: "POST",
+        headers: {
+          "X-ACCESS-TOKEN": cookie,
+        },
+        body: JSON.stringify({
+          prompt: { title },
+        }),
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();

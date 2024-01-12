@@ -1,6 +1,6 @@
 const getUserInfo = async (cookie) => {
   try {
-    let response = await fetch(`http://3.39.62.158:8080/setting`, {
+    let response = await fetch(`https://api.alertglobal.store/setting`, {
       method: "GET",
       headers: {
         "X-ACCESS-TOKEN": cookie,

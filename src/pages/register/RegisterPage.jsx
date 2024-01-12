@@ -137,19 +137,22 @@ export default function RegisterPage() {
     if (isFormValid) {
       setCorrectMessage("가입이 가능합니다.");
       try {
-        const response = await fetch("http://3.39.62.158:8080/users/join", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-            language: language.value,
-            city: city.value,
-            gu: gu.value,
-          }),
-        });
+        const response = await fetch(
+          "https://api.alertglobal.store/users/join",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+              language: language.value,
+              city: city.value,
+              gu: gu.value,
+            }),
+          }
+        );
 
         if (response.ok) {
           navigate("/");

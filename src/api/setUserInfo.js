@@ -3,7 +3,7 @@ const setUserInfo = async (city, gu, language, cookie) => {
   // console.log("gu", gu);
   //console.log("language", language);
   try {
-    let response = await fetch(`http://3.39.62.158:8080/setting/change`, {
+    let response = await fetch(`https://api.alertglobal.store/setting/change`, {
       method: "PUT",
       headers: {
         "X-ACCESS-TOKEN": cookie,

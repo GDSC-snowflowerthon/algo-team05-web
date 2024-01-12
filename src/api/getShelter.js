@@ -1,7 +1,7 @@
 const getShelter = async (region, cookie) => {
   try {
     let response = await fetch(
-      `http://3.39.62.158:8080/shelter/search/${region}`,
+      `https://api.alertglobal.store/shelter/search/${region}`,
       {
         method: "POST",
         headers: {

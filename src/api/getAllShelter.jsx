@@ -1,6 +1,6 @@
 const getAllShelter = async (region, cookie) => {
   try {
-    let response = await fetch(`http://3.39.62.158:8080/shelter`, {
+    let response = await fetch(`https://api.alertglobal.store/shelter`, {
       headers: {
         "X-ACCESS-TOKEN": { cookie },
       },

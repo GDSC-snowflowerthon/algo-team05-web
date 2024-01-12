@@ -24,16 +24,19 @@ export default function LoginPage() {
     if (isFormValid) {
       setCorrectMessage("로그인이 가능합니다.");
       try {
-        const response = await fetch("http://3.39.62.158:8080/users/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-        });
+        const response = await fetch(
+          "https://api.alertglobal.store/users/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+            }),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
