@@ -24,7 +24,7 @@ export const NavigationBar = styled.div`
   width: 85%;
   height: 45px;
   max-width: 390px;
-  background-color: #f4f6ff;
+  background-color: #f9faff;
 `;
 
 export const HomeBtn = styled.div`
@@ -34,6 +34,7 @@ export const HomeBtn = styled.div`
   background-repeat: no-repeat;
   cursor: pointer;
   margin-left: 30px;
+  margin-top: 30px;
 `;
 
 export const SettingBtn = styled.div`
@@ -43,6 +44,7 @@ export const SettingBtn = styled.div`
   background-repeat: no-repeat;
   cursor: pointer;
   margin-right: 30px;
+  margin-top: 30px;
 `;
 
 export default function Navigation() {
