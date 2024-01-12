@@ -3,10 +3,7 @@ import { StyledSelect } from "@/components/select/SelectStyle";
 
 export default function CitySelectBar({ data, setCity, city }) {
   const options = data;
-  const firstValue =
-    city && city.value && city.label
-      ? { value: city.value, label: city.label }
-      : { value: "77", label: "선택" };
+  const firstValue = { value: "77", label: "선택" };
 
   const handleSelectChange = (selectedOption) => {
     setCity(selectedOption);

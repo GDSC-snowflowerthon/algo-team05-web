@@ -3,10 +3,7 @@ import { StyledSelect } from "@/components/select/SelectStyle";
 
 export default function GuSelectBar({ data, setGu, gu }) {
   const options = data;
-  const firstValue =
-    gu && gu.value && gu.label
-      ? { value: gu.value, label: gu.label }
-      : { value: "77", label: "선택" };
+  const firstValue = { value: "77", label: "선택" };
 
   const handleSelectChange = (selectedOption) => {
     setGu(selectedOption);
