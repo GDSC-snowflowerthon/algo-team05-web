@@ -5,19 +5,20 @@ import {
   Title,
   Information,
   FlexRow,
-  SearchBox,
-  SearchInput,
-  SearchIconBox,
-  SearchIcon,
   ShelterContent,
   ListBox,
   ScrollIcon,
   DetailTagBox,
+  ShelterButtonStyle,
+  ShelterTagBox,
 } from "@/styles/styles";
 import ShelterTag from "@/components/shelter/ShelterTag";
 import DetailTag from "@/components/shelter/DetailTag";
 import { shelters } from "@/data/Shelters";
 import { getShelter } from "@/api/getShelter";
+import { getAllShelter } from "@/api/getAllShelter";
+import { seoulArea } from "@/data/SeoulArea";
+import { shelterSelectCodes } from "@/data/ShelterSelectCode";
 
 export default function Shelter() {
   const cookie = localStorage.getItem("accessToken");
@@ -44,7 +45,7 @@ export default function Shelter() {
   useEffect(() => {
     (async () => {
       try {
-        setShelterList(await getShelter(1147000000));
+        setShelterList(await getAllShelter());
         //  console.log(shelterList[0].description, shelterList[0].address);
         // Do something with the translationData
       } catch (error) {
@@ -54,13 +55,20 @@ export default function Shelter() {
     })();
   }, []);
 
+  const findAreaByValue = (value, data) => {
+    const selectedArea = data.find((item) => item.label === value);
+    return selectedArea.value || null; // return null if not found
+  };
+
   const handleSearch = (keyword) => {
     console.log("클릭");
     setData(keyword);
 
+    const getCode = findAreaByValue(keyword, shelterSelectCodes);
+
     (async () => {
       try {
-        setShelterList(await getShelter(keyword, cookie));
+        setShelterList(await getShelter(getCode, cookie));
         console.log(shelterList);
         // Do something with the translationData
       } catch (error) {
@@ -106,12 +114,16 @@ export default function Shelter() {
         <Title top="60px">{title}</Title>
         <Information />
       </FlexRow>
-      <SearchBox>
-        <SearchInput type="text" value={text} onChange={handleChange} />
-        <SearchIconBox>
-          <SearchIcon onClick={() => handleSearch("1147000000")} />
-        </SearchIconBox>
-      </SearchBox>
+      <ShelterTagBox>
+        {seoulArea.slice(1).map((area) => (
+          <ShelterButtonStyle
+            key={area.value}
+            onClick={() => handleSearch(area.value)}
+          >
+            {area.value}
+          </ShelterButtonStyle>
+        ))}
+      </ShelterTagBox>
       <ShelterContent>{data}</ShelterContent>
       <ListBox>{renderShelterTags()}</ListBox>
       <ScrollIcon />

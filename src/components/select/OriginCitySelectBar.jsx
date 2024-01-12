@@ -4,7 +4,7 @@ import { OriginStyledSelect } from "@/components/select/OriginSelectStyle";
 
 export default function OriginCitySelectBar({ data, setCity }) {
   const options = data;
-  const [selectOnline, setSelectOnline] = useState("");
+  const [selectOnline, setSelectOnline] = useState("선택해주세요");
 
   const handleSelectChange = (selectedOption) => {
     setSelectOnline(selectedOption);
