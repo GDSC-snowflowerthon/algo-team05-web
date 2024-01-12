@@ -8,7 +8,15 @@ export default function Quizpage() {
     const [isAnswered, setIsAnswered] = useState(false);
     const [correctCount, setCorrectCount] = useState(0);
     const [alertMessage, setAlertMessage] = useState(null);
+    const [finish, sertFinish] = useState(false);
 
+    const goToback = () => {
+        navigate("/");
+    }
+
+    const retry = () => {
+        location.reload();
+    }
 
     const handleAnswer = (answer) => {
         if (isAnswered) return; 
@@ -32,6 +40,7 @@ export default function Quizpage() {
             setAlertMessage(<>
                 퀴즈가 모두 끝났습니다.<br />
                 점수 : {correctCount * 10}점 / 100 점
+                
               </>);
         }
       }, 500);
@@ -44,8 +53,16 @@ export default function Quizpage() {
         <QuizStyle>
             <Lttext style={{ fontSize : '30px', marginTop : '80px'}}>{quiz[currentQuizIndex].quiz}</Lttext>
         </QuizStyle>
+        {!finish ? 
+        (<>
         <QuizButtonStyle style={{ left: '13%', right: 'auto' }} onClick={() => {handleAnswer("O")}}>O</QuizButtonStyle>
-        <QuizButtonStyle style={{ right: '13%', left: 'auto' }} onClick={() => {handleAnswer("X")}}>X</QuizButtonStyle>
+        <QuizButtonStyle style={{ right: '13%', left: 'auto' }} onClick={() => {handleAnswer("X")}}>X</QuizButtonStyle></>
+        ) : 
+        (<>
+        <QuizButtonStyle style={{ left: '13%', right: 'auto', fontSize : '25px' }} onClick={() => {retry()}}>다시하기</QuizButtonStyle>
+        <QuizButtonStyle style={{ right: '13%', left: 'auto', fontSize : '25px' }} onClick={() => {goToback()}}>돌아가기</QuizButtonStyle></>
+        )
+        }
         <div style={{ fontSize : '20px', position: "absolute", top: '540px', opacity: alertMessage ? 1 : 0, height: alertMessage ? 'auto' : 0, overflow: 'hidden', transition: "opacity 0.5s, height 0.5s" }}>
                 <p style={{ color: "#333d42" }}>{alertMessage}</p>
             </div>
