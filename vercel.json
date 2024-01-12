@@ -1,8 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/" },
-    { "source": "/home", "destination": "/home" },
-    { "source": "/register", "destination": "/register" },
-    { "source": "/login", "destination": "/login" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }
