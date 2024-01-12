@@ -37,6 +37,7 @@ export default function Quizpage() {
           setIsAnswered(false);
           setAlertMessage(null);
         } else {
+            sertFinish(true);
             setAlertMessage(<>
                 퀴즈가 모두 끝났습니다.<br />
                 점수 : {correctCount * 10}점 / 100 점
