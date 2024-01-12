@@ -12,7 +12,6 @@ import {
 } from "@/styles/styles";
 import MapDetailTag from "@/components/click-content/MapDetailTag";
 import ActionDetailTag from "@/components/click-content/ActionDetailTag";
-import { getTranslate } from "@/api/getTranslate";
 import { IoWarningOutline } from "react-icons/io5";
 
 export default function ClickContent() {
